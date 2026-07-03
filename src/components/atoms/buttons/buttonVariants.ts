@@ -9,7 +9,7 @@ export const variants: Record<ButtonVariant, string> = {
     "border border-transparent",
 
   outline:
-    "border bg-transparent",
+    "border border-2 bg-transparent",
 };
 
 export const colors: Record<ButtonColor, Record<ButtonVariant, string>> = {
