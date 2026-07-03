@@ -4,7 +4,7 @@ import { SquarePen } from 'lucide-react'
 const Login = () => {
   return (
     <div>
-      <Button text="Login" icon={<SquarePen />} iconPosition="right" variant="outline" color="primary" size="md" />
+      <Button text="Login" icon={<SquarePen />} iconPosition="right"  variant="outline" color="primary" size="md" />
     </div>
   )
 }
