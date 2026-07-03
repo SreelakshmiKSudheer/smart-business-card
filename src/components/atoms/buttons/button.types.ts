@@ -11,7 +11,7 @@ export type ButtonColor =
   | "success";
 
 export type IconPosition = "left" | "right";
-
+export type ButtonDirection = "row" | "col"; 
 export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string;
@@ -25,6 +25,8 @@ export interface ButtonProps
   color?: ButtonColor;
 
   iconPosition?: IconPosition;
+
+  iconDirection?: ButtonDirection;
 
   fullWidth?: boolean;
 

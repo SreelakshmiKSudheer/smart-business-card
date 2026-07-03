@@ -3,6 +3,7 @@ import {
   variants,
   colors,
   sizes,
+  directions,
 } from "./buttonVariants";
 
 const Button = ({
@@ -12,6 +13,7 @@ const Button = ({
   size = "md",
   color = "primary",
   iconPosition = "left",
+  iconDirection = "row",
   fullWidth = false,
   loading = false,
   className = "",
@@ -22,7 +24,7 @@ const Button = ({
     <button
       disabled={disabled || loading}
       className={`
-        inline-flex
+        flex
         items-center
         justify-center
         gap-2
@@ -33,6 +35,7 @@ const Button = ({
         ${variants[variant]}
         ${colors[color][variant]}
         ${sizes[size]}
+        ${directions[iconDirection]}
 
         ${fullWidth ? "w-full" : ""}
 
@@ -47,7 +50,7 @@ const Button = ({
           {icon && iconPosition === "left" && icon}
 
           {text && (
-            <span className="hidden sm:inline">
+            <span>
               {text}
             </span>
           )}

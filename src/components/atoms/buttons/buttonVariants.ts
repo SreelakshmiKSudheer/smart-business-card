@@ -1,5 +1,6 @@
 import type {
     ButtonColor,
+    ButtonDirection,
     ButtonSize,
     ButtonVariant,
 } from "./button.types";
@@ -52,4 +53,9 @@ export const sizes: Record<ButtonSize, string> = {
   md: "px-5 py-2 text-base",
 
   lg: "px-6 py-3 text-lg",
+};
+
+export const directions: Record<ButtonDirection, string> = {
+  row: "flex-row",
+  col: "flex-col",
 };
