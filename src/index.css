@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+:root {
+  --bg: #C4C6CC;
+  --card: #FFFFFF;
+  --text: #000000;
+  --text-light: #3d3d3d;
+  --dominant: #006A62;
+  --dominant-alt: #014b45;
+}
+
+.dark {
+  --bg: #111317;
+  --card: #1E1F29;
+  --text: #FFFFFF;
+  --text-light: #c2c2c2;
+  --dominant: #006A62;
+  --dominant-alt: #0e6b63;
+}
