@@ -1,11 +1,9 @@
-import React from "react"
-import { Pen } from "lucide-react"
-import Button from "./components/atoms/buttons/Button";
+import React from 'react'
+import AppRouter from './router/AppRouter'
+
 const App = () => {
   return (
-    <div>
-      <Button text="LinkedIn" icon={<Pen />} variant="outline" color="primary" size="md" />
-    </div>
+    <AppRouter />
   )
 }
 
