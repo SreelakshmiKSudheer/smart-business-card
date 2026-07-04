@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DisplayCard = () => {
+const EmployeeButtons = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const DisplayCard = () => {
   )
 }
 
-export default DisplayCard
+export default EmployeeButtons
