@@ -1,4 +1,4 @@
-import { Company } from "../types/Company";
+import type { Company } from "../types/Company";
 
 export const company: Company = {
   id: "COMP001",

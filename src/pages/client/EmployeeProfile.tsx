@@ -1,11 +1,13 @@
-import React from 'react'
 
-const EmployeeProfile = () => {
+import EmployeeCard from '../../components/organisms/EmployeeCard';
+import styles from './EmployeeProfile.module.css';
+
+export default function EmployeeProfile() {
   return (
-    <div>
-      
-    </div>
-  )
+    <main className={styles.page}>
+      <div className={styles.container}>
+        <EmployeeCard />
+      </div>
+    </main>
+  );
 }
-
-export default EmployeeProfile

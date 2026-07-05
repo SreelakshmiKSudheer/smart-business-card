@@ -1,3 +1,6 @@
+import type { Contact } from "./Contact";
+import type { Skill } from "./Skill";
+
 export interface Employee {
   id: string;
   firstName: string;

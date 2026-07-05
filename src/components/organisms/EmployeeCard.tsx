@@ -1,11 +1,20 @@
-import React from 'react'
+import EmployeeInfo from "../molecules/EmployeeInfo";
+import AboutCard from "../molecules/AboutCard";
 
-const EmployeeCard = () => {
+import profileImage from "../../assets/images/profile.png";
+
+export default function EmployeeCard() {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <>
+      <EmployeeInfo
+        image={profileImage}
+        name="Alex Stratos"
+        designation="Senior Solutions Architect"
+      />
 
-export default EmployeeCard
+      <AboutCard
+        about="Helping enterprises build scalable cloud solutions and digital transformation initiatives."
+      />
+    </>
+  );
+}
