@@ -1,0 +1,25 @@
+.container {
+  width: 100%;
+
+  background: #eef3fb;
+
+  border: 1px solid #d8e0ec;
+
+  border-radius: 12px;
+
+  padding: 18px;
+
+  box-sizing: border-box;
+}
+
+.text {
+  margin: 0;
+
+  text-align: center;
+
+  color: #4d5664;
+
+  line-height: 1.7;
+
+  font-size: 0.95rem;
+}
