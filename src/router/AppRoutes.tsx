@@ -1,7 +1,7 @@
-import React from 'react'
 import { Route, Routes } from 'react-router'
 import AuthLayout from '../layouts/AuthLayout'
 import EmployeeLayout from '../layouts/EmployeeLayout'
+import AdminLayout from '../layouts/AdminLayout'
 import Login from '../pages/auth/Login'
 import EmployeeProfile from '../pages/client/EmployeeProfile'
 import EmployeeDashboard from '../pages/employee/EmployeeDashboard'
@@ -11,6 +11,7 @@ import AdminDashboard from '../pages/admin/AdminDashboard'
 import AdminEmployees from '../pages/admin/AdminEmployees'
 import AdminEmployee from '../pages/admin/AdminEmployee'
 import AdminSettings from '../pages/admin/AdminSettings'
+
 
 const AppRoutes = () => {
   return (
@@ -23,6 +24,9 @@ const AppRoutes = () => {
             <Route path="employee/profile" element={<EmployeeDashboard />} />
             <Route path="employee/qr" element={<EmployeeQR />} />
             <Route path="employee/edit" element={<EmployeeEdit />} />
+
+        </Route>
+        <Route element={<AdminLayout/>}>
             <Route path="admin/dashboard" element={<AdminDashboard />} />
             <Route path="admin/employees" element={<AdminEmployees />} />
             <Route path="admin/employees/:employeeId" element={<AdminEmployee />} />
