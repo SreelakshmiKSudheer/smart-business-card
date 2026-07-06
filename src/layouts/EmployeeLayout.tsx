@@ -29,9 +29,6 @@ export default function EmployeeLayout() {
         <Outlet />
       </main>
 
-      {/* Floating QR */}
-
-      <FloatingQRButton />
 
     </div>
   );
