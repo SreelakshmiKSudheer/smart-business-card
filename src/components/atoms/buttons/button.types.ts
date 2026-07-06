@@ -31,4 +31,6 @@ export interface ButtonProps
   fullWidth?: boolean;
 
   loading?: boolean;
+
+  onclick?: () => void;
 }

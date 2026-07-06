@@ -16,7 +16,7 @@ export const company: Company = {
 
   address: "Bangalore, Karnataka, India",
 
-  logo: tarentoLogo
+  logo: tarentoLogo,
 
   location: {
     address: "Prestige Shantiniketan",

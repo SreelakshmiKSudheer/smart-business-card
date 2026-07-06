@@ -1,8 +1,8 @@
-import type { Company } from "../../../types/Company";
+import type { Company } from "../../types/Company";
 
-import LocationInfo from "../../molecules/LocationInfo";
-import MapCard from "../../molecules/MapCard";
-import LocationActions from "../../molecules/LocationActions";
+import LocationInfo from "../molecules/LocationInfo";
+import MapCard from "../molecules/MapCard";
+import LocationActions from "../molecules/LocationActions";
 
 interface LocationCardProps {
   company: Company;

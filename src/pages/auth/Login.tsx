@@ -1,10 +1,10 @@
 import React from 'react'
-import Button from '../../components/atoms/buttons/Button'
-import { SquarePen } from 'lucide-react'
+import LoginForm from '../../components/organisms/forms/LoginForm'
+
 const Login = () => {
   return (
-    <div>
-      <Button text="Login" icon={<SquarePen />} iconPosition="right"  variant="outline" color="primary" size="md" />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-(--bg)">
+      <LoginForm />
     </div>
   )
 }
