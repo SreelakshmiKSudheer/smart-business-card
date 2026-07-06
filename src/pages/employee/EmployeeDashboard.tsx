@@ -1,11 +1,18 @@
-import React from 'react'
+import BusinessCard from "../../components/organisations/BusinessCard";
 
-const EmployeeDashboard = () => {
+import FloatingQRButton from "../../components/molecules/FloatingQRButton/FloatingQRButton";
+
+
+export default function EmployeeDashboard() {
   return (
-    <div>
+    <main className="relative min-h-screen bg-slate-100">
       
-    </div>
-  )
-}
+      <BusinessCard
 
-export default EmployeeDashboard
+      />
+
+      <FloatingQRButton />
+
+    </main>
+  );
+}
