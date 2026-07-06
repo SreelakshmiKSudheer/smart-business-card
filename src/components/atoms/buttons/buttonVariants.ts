@@ -24,10 +24,10 @@ export const colors: Record<ButtonColor, Record<ButtonVariant, string>> = {
 
   secondary: {
     filled:
-      "bg-gray-600 text-white hover:bg-gray-700",
+      "bg-(--text) text-(--bg) hover:bg-(--text-light) ",
 
     outline:
-      "border-gray-600 text-gray-600 hover:bg-gray-50",
+      "border-(--text) text-(--bg) hover:bg-(--text-light)",
   },
 
   success: {

@@ -24,7 +24,6 @@ const AppRoutes = () => {
             <Route path="employee/profile" element={<EmployeeDashboard />} />
             <Route path="employee/qr" element={<EmployeeQR />} />
             <Route path="employee/edit" element={<EmployeeEdit />} />
-
         </Route>
         <Route element={<AdminLayout/>}>
             <Route path="admin/dashboard" element={<AdminDashboard />} />

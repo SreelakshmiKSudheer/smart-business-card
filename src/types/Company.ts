@@ -7,7 +7,7 @@ export interface Company {
   linkedin: string;
 
   logo: string;
-
+bannerImage: string;
   location: {
     address: string;
     city: string;

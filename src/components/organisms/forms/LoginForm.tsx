@@ -57,7 +57,7 @@ const LoginForm = () => {
   };
 
   return (
-    <form className="flex flex-col mx-auto my-8 gap-4 p-6 w-full md: max-w-md rounded-xl bg-(--card) shadow-xl">
+    <form className="flex flex-col mx-auto my-8 gap-4 px-6 py-8 w-full md: max-w-md rounded-xl bg-(--card) shadow-xl">
       <img src={companyLogo} alt="Tarento Logo" className="mx-auto h-14" />
       <LabelInput label={emailProps.label} input={emailProps.input} />
       <LabelInput label={passwordProps.label} input={passwordProps.input} />
@@ -70,7 +70,7 @@ const LoginForm = () => {
             onChange: (e) => setRememberMe(e.target.checked),
           }}
         />
-      <Button text="Login" icon={<MoveRight />} iconPosition="right" onClick={() => {console.log("Login button clicked")}} />
+      <Button text="Login" icon={<MoveRight />} color="secondary" iconPosition="right" onClick={() => {console.log("Login button clicked")}} />
     </form>
   )
 }

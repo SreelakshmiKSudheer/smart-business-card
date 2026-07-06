@@ -11,7 +11,7 @@ const EmployeeLayout = () => {
     companyLogo={company.logo}
     companyName={company.name}
 />
-        <main>
+        <main className="min-h-[calc(100vh-64px)] bg-(--bg)">
             <Outlet />
         </main>
         <Footer company={company} />
