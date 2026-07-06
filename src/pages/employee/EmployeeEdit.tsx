@@ -1,11 +1,19 @@
-import React from 'react'
+import EmployeeHeader from "../../components/organisms/EmployeeHeader";
 
-const EmployeeEdit = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default EmployeeEdit
+<EmployeeHeader
+  showBack
+  title="Edit Profile"
+  rightContent={
+    <button
+      className="
+        rounded-xl
+        bg-[var(--dominant)]
+        px-4
+        py-2
+        text-white
+      "
+    >
+      Save
+    </button>
+  }
+/>
