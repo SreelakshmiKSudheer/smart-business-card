@@ -1,5 +1,6 @@
 import tarentoLogo from "../assets/images/tarento-logo.png";
 import type { Company } from "../types/Company";
+import officeBanner from "../assets/images/tarento-office.png";
 
 export const company: Company = {
   name: "Tarento Technologies Pvt. Ltd.",
@@ -14,7 +15,7 @@ export const company: Company = {
   linkedin: "https://www.linkedin.com/company/tarento",
 
   logo: tarentoLogo,
-
+  bannerImage: officeBanner,
   location: {
     address: "11th Floor, BLOCK CRED, IBC KNOWLEDGE PARK, Tower C, Bannerghatta Rd",
     city: "Bengaluru",

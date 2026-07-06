@@ -34,8 +34,6 @@ export const employee: Employee = {
     "Node.js",
     "Docker",
     "Kubernetes",
-    "AI",
     "Microservices",
-    "DevOps",
   ],
 };
