@@ -7,9 +7,7 @@ export default function EmployeeDashboard() {
   return (
     <main className="relative min-h-screen bg-slate-100">
       
-      <BusinessCard
-
-      />
+      <BusinessCard/>
 
       <FloatingQRButton />
 
