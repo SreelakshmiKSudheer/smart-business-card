@@ -1,13 +1,17 @@
-import { Outlet } from 'react-router'
+import { Outlet } from "react-router";
+
+import Sidebar from "../components/organisms/sidebar/Sidebar";
 
 const AdminLayout = () => {
   return (
-    <div>
-        <main className="min-h-[calc(100vh-64px)] bg-(--bg)">
-            <Outlet />
-        </main>
-    </div>
-  )
-}
+    <div className="flex h-screen">
+      <Sidebar />
 
-export default AdminLayout
+      <main className="flex-1 overflow-auto p-6">
+        <Outlet />
+      </main>
+    </div>
+  );
+};
+
+export default AdminLayout;

@@ -24,54 +24,6 @@ const AdminSettings: React.FC = () => {
   return (
     <div className="flex min-h-screen bg-[#f4f6fa] font-sans">
       
-      {/* ================= SIDEBAR NAVIGATION ================= */}
-      <aside className="w-[250px] bg-[#f0f4fc] flex flex-col py-6 border-r border-solid border-[#e2e8f0]">
-        
-        {/* SBC Logo Brand Section */}
-        <div className="px-6 mb-6">
-          <div className="flex items-center gap-3 bg-white px-3 py-2 rounded w-fit">
-            <img src={logoImg} alt="SBC Logo" className="w-7 h-7 object-contain" />
-            <span className="text-xl font-bold text-[#111827]">SBC</span>
-          </div>
-        </div>
-
-        {/* Secondary Corporate Brand Logo Section (Replaced text with Image block) */}
-        <div className="px-6 mb-8">
-          <div className="h-8 w-36 flex items-center">
-            {/* Swap the src attribute with your dedicated Tarento logo image file later */}
-            <img src={companyLogo} alt="Company Logo" className="h-full w-full object-contain object-left" />
-          </div>
-        </div>
-
-        {/* Tab Selection Navigation */}
-        <nav className="flex-grow flex flex-col gap-1 px-3">
-          {navItems.map((item) => {
-            const isActive = activeTab === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={() => setActiveTab(item.id)}
-                className={`flex items-center gap-3 px-4 py-2.5 rounded-md border-none text-left cursor-pointer text-sm transition-all duration-200
-                  ${isActive 
-                    ? 'bg-[var(--dominant)] text-white font-semibold' 
-                    : 'bg-transparent text-[#64748b] font-medium hover:bg-gray-100'
-                  }`}
-              >
-                {item.icon}
-                {item.label}
-              </button>
-            );
-          })}
-        </nav>
-
-        {/* Sidebar Footer Logout button */}
-        <div className="px-4 border-t border-solid border-[#cbd5e1] pt-4">
-          <button className="flex items-center gap-3 px-4 py-2.5 w-full bg-transparent border-none text-[#64748b] font-medium cursor-pointer text-left text-sm">
-            <LogOut size={18} />
-            <span>Logout</span>
-          </button>
-        </div>
-      </aside>
 
       {/* ================= MAIN INTERFACE BODY ================= */}
       <div className="flex-grow flex flex-col">
