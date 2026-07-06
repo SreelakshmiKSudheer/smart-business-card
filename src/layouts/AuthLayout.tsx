@@ -1,6 +1,7 @@
 import React from 'react'
 import { Outlet} from 'react-router'
 import Footer from '../components/organisms/Footer'
+import { company } from '../data/company'
 
 const AuthLayout = () => {
   return (
@@ -8,7 +9,7 @@ const AuthLayout = () => {
         <main>
             <Outlet />
         </main>
-        <Footer />
+        <Footer company={company} />
     </div>
   )
 }

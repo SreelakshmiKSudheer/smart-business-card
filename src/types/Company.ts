@@ -1,17 +1,20 @@
 export interface Company {
-  id: string;
-
   name: string;
-
   tagline: string;
-
   description: string;
 
   website: string;
-
   linkedin: string;
 
   logo: string;
 
-  address: string;
+  location: {
+    address: string;
+    city: string;
+    state: string;
+    country: string;
+
+    googleMapsUrl: string;
+    embedUrl: string;
+  };
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router'
 import AuthLayout from '../layouts/AuthLayout'
-import MainLayout from '../layouts/MainLayout'
+import EmployeeLayout from '../layouts/EmployeeLayout'
 import Login from '../pages/auth/Login'
 import EmployeeProfile from '../pages/client/EmployeeProfile'
 import EmployeeDashboard from '../pages/employee/EmployeeDashboard'
@@ -18,8 +18,8 @@ const AppRoutes = () => {
         <Route element={<AuthLayout/>}>
             <Route path="/login" element={<Login />} />
         </Route>
-        <Route element={<MainLayout/>}>
-            <Route path="about/:employeeName" element={<EmployeeProfile />} />
+        <Route element={<EmployeeLayout/>}>
+            <Route path="/:employeeName" element={<EmployeeProfile />} />
             <Route path="employee/profile" element={<EmployeeDashboard />} />
             <Route path="employee/qr" element={<EmployeeQR />} />
             <Route path="employee/edit" element={<EmployeeEdit />} />

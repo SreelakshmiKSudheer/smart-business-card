@@ -1,20 +1,45 @@
 import EmployeeInfo from "../molecules/EmployeeInfo";
 import AboutCard from "../molecules/AboutCard";
 
-import profileImage from "../../assets/images/profile.jpg";
+import profileImage from "../../assets/images/profile.png";
+import EmployeeButtons from "../molecules/EmployeeButtons/EmployeeButtons";
 
-export default function EmployeeCard() {
+import type { Employee } from "../../types/Employee";
+
+
+interface EmployeeCardProps {
+  employee: Employee;
+}
+
+export default function EmployeeCard({
+  employee,
+}: EmployeeCardProps) {
   return (
-    <>
+    <section
+      className="
+        rounded-3xl
+        bg-white
+        p-8
+        shadow-md
+      "
+    >
       <EmployeeInfo
-        image={profileImage}
-        name="Alex Stratos"
-        designation="Senior Solutions Architect"
+        image={employee.profileImage}
+        name={`${employee.firstName} ${employee.lastName}`}
+        designation={employee.designation}
       />
 
-      <AboutCard
-        about="Helping enterprises build scalable cloud solutions and digital transformation initiatives."
+      <div className="mt-6">
+        <AboutCard
+          about={employee.about}
+        />
+      </div>
+
+      <EmployeeButtons
+        email={employee.email}
+        phone={employee.phone}
+        linkedin={employee.linkedin}
       />
-    </>
+    </section>
   );
 }

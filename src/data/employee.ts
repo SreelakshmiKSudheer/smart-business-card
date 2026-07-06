@@ -1,4 +1,6 @@
-import { Employee } from "../types/employee";
+import profileImage from "../assets/images/profile.png";
+
+import type { Employee } from "../types/Employee";
 
 export const employee: Employee = {
   id: "EMP001",
@@ -9,39 +11,31 @@ export const employee: Employee = {
 
   designation: "Senior Solutions Architect",
 
-  businessUnit: "Cloud Consulting",
-
-  profileImage: "/images/profile.jpg",
-
-  about:
-    "Helping enterprises build scalable cloud solutions and digital transformation initiatives.",
+  department: "Cloud Consulting",
 
   experience: 12,
 
-  contact: {
-    email: "alex@tarento.com",
+  about:
+    "Helping enterprises build scalable cloud solutions and digital transformation initiatives through cloud-native architecture, AI integration, and enterprise modernization.",
 
-    phone: "+91 9876543210",
+  email: "alex.stratos@tarento.com",
 
-    linkedin: "https://linkedin.com/in/alexstratos"
-  },
+  phone: "+91 9876543210",
+
+  linkedin: "https://linkedin.com/in/alexstratos",
+
+  profileImage,
 
   expertise: [
-    {
-      id: "1",
-      name: "Cloud"
-    },
-    {
-      id: "2",
-      name: "AWS"
-    },
-    {
-      id: "3",
-      name: "Microservices"
-    },
-    {
-      id: "4",
-      name: "AI"
-    }
-  ]
+    "Cloud",
+    "AWS",
+    "Azure",
+    "React",
+    "Node.js",
+    "Docker",
+    "Kubernetes",
+    "AI",
+    "Microservices",
+    "DevOps",
+  ],
 };
