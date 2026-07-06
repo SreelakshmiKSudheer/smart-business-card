@@ -23,14 +23,6 @@ export default function EmployeeProfile() {
 
         <LocationCard company={company} />
 
-        {/* Footer */}
-
-        <footer className="pb-8 text-center text-gray-500">
-
-          © Tarento Technologies Pvt. Ltd.
-
-        </footer>
-
       </div>
 
     </main>

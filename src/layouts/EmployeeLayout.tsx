@@ -4,7 +4,7 @@ import Header from '../components/organisms/Header'
 import Footer from '../components/organisms/Footer'
 import { company } from '../data/company'
 
-const MainLayout = () => {
+const EmployeeLayout = () => {
   return (
     <div>
         <Header
@@ -14,9 +14,9 @@ const MainLayout = () => {
         <main>
             <Outlet />
         </main>
-        <Footer />
+        <Footer company={company} />
     </div>
   )
 }
 
-export default MainLayout
+export default EmployeeLayout

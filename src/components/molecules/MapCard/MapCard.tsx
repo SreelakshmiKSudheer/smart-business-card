@@ -1,8 +1,8 @@
 interface MapCardProps {
-  mapImage: string;
+  embedUrl: string;
 }
 
-const MapCard = ({ mapImage }: MapCardProps) => {
+const MapCard = ({ embedUrl }: MapCardProps) => {
   return (
     <div
       className="
@@ -10,16 +10,19 @@ const MapCard = ({ mapImage }: MapCardProps) => {
         rounded-2xl
         border
         border-slate-200
+        shadow-sm
       "
     >
-      <img
-        src={mapImage}
-        alt="Office Location"
-        className="
-          h-64
-          w-full
-          object-cover
-        "
+      <iframe
+        src={embedUrl}
+        title="Company Location"
+        width="100%"
+        height="350"
+        loading="lazy"
+        allowFullScreen
+        referrerPolicy="no-referrer-when-downgrade"
+        className="w-full"
+        style={{ border: 0 }}
       />
     </div>
   );

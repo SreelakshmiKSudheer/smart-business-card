@@ -1,8 +1,8 @@
-import type { Company } from "../../../types/Company";
+import type { Company } from "../../types/Company";
 
-import LocationInfo from "../../molecules/LocationInfo";
-import MapCard from "../../molecules/MapCard";
-import LocationActions from "../../molecules/LocationActions";
+import LocationInfo from "../molecules/LocationInfo/";
+import MapCard from "../molecules/MapCard";
+
 
 interface LocationCardProps {
   company: Company;
@@ -31,17 +31,13 @@ const LocationCard = ({ company }: LocationCardProps) => {
             country={company.location.country}
           />
 
-          <LocationActions
-            googleMapsUrl={company.location.googleMapsUrl}
-          />
-
         </div>
 
         {/* Right Side */}
 
         <MapCard
-          mapImage={company.location.mapImage}
-        />
+  embedUrl={company.location.embedUrl}
+    />
 
       </div>
     </section>
