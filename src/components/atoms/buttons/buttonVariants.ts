@@ -11,6 +11,9 @@ export const variants: Record<ButtonVariant, string> = {
 
   outline:
     "border border-2 bg-transparent",
+
+  none:
+    "border border-transparent bg-transparent",
 };
 
 export const colors: Record<ButtonColor, Record<ButtonVariant, string>> = {
@@ -20,7 +23,10 @@ export const colors: Record<ButtonColor, Record<ButtonVariant, string>> = {
 
     outline:
       "border-(--dominant) text-(--dominant) hover:bg-(--dominant) hover:text-white",
-  },
+  
+    none:
+      "text-(--dominant) hover:text-(--dominant-alt)"
+    },
 
   secondary: {
     filled:
@@ -28,7 +34,10 @@ export const colors: Record<ButtonColor, Record<ButtonVariant, string>> = {
 
     outline:
       "border-(--text) text-(--bg) hover:bg-(--text-light)",
-  },
+ 
+    none:
+      "text-(--text) hover:text-(--text-light)"
+    },
 
   success: {
     filled:
@@ -36,6 +45,9 @@ export const colors: Record<ButtonColor, Record<ButtonVariant, string>> = {
 
     outline:
       "border-green-600 text-green-600 hover:bg-green-50",
+
+    none:
+      "text-green-600 hover:text-green-700"
   },
 
   danger: {
@@ -44,6 +56,8 @@ export const colors: Record<ButtonColor, Record<ButtonVariant, string>> = {
 
     outline:
       "border-red-600 text-red-600 hover:bg-red-50",
+    none:
+      "text-red-600 hover:text-red-700"
   },
 };
 
