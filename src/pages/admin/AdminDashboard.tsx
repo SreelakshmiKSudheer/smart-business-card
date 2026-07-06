@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { LayoutGrid, Users, Settings, LogOut, Search, TrendingUp, AlertCircle } from 'lucide-react'
 import logoImg from '../../assets/images/logoImg.png' // Adjust the import path to where your image is saved
 import companyLogo from '../../assets/images/companyLogo.png' // Adjust the import path to where your image is savedFov
+import MapCard from '../../components/molecules/MapCard';
+import { company } from '../../data/company';
 // Define explicit types for strict TSX compliance
 interface MetricCardProps {
   title: string;
@@ -175,18 +177,10 @@ const AdminDashboard: React.FC = () => {
             </div>
 
           </div>
-
-          {/* Regional Smart Card Office Geolocation Map Section Container */}
-          <div className="bg-white rounded-xl p-4 border border-solid border-[#e2e8f0]">
-            <div className="w-full h-[220px] rounded-lg bg-[#0f172a] relative overflow-hidden">
-              <div className="w-full h-full opacity-40 bg-[radial-gradient(circle_at_40%_50%,#3b82f6_0%,transparent_60%)]"></div>
-              <div className="absolute top-1/2 left-[45%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                <div className="w-3 h-3 bg-[#ef4444] rounded-full border-2 border-solid border-white"></div>
-                <span className="bg-[#1e293b] text-white text-[0.7rem] px-1.5 py-0.5 rounded mt-1 whitespace-nowrap">Tarento Technologies Pvt Limited</span>
-              </div>
-            </div>
-          </div>
-
+          {/* Location Map Card */}
+          <MapCard
+          embedUrl={company.location.embedUrl}
+           />
         </main>
 
         {/* SYSTEM BOTTOM LEGAL SUBFOOTER */}

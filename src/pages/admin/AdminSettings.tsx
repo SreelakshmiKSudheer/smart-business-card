@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { LayoutGrid, Users, Settings as SettingsIcon, LogOut, Palette, Upload, PenTool } from 'lucide-react'
 import companyLogo from '../../assets/images/companyLogo.png' // Adjust the import path to where your image is saved
 import logoImg from '../../assets/images/logoImg.png' // Adjust the import path to where your image is saved
+import MapCard from '../../components/molecules/MapCard';
+import { company } from '../../data/company';
+
 
 interface NavItem {
   id: string;
@@ -171,12 +174,7 @@ const AdminSettings: React.FC = () => {
                 
                 <div className="flex flex-col gap-1.5 mt-2">
                   <label className="text-[11px] font-bold text-[#64748b] uppercase tracking-wider">Location</label>
-                  <div className="w-full h-[180px] rounded-lg bg-[#0f172a] relative overflow-hidden">
-                    <div className="w-full h-full opacity-40 bg-[radial-gradient(circle_at_40%_50%,#3b82f6_0%,transparent_60%)]"></div>
-                    <div className="absolute top-1/2 left-[45%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                      <div className="w-3 h-3 bg-[#ef4444] rounded-full border border-solid border-white"></div>
-                    </div>
-                  </div>
+                  <MapCard embedUrl={company.location.embedUrl} />
                 </div>
               </div>
 
