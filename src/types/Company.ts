@@ -6,18 +6,15 @@ export interface Company {
   website: string;
   linkedin: string;
 
-  address: string;
-
   logo: string;
-  
+
   location: {
-  address: string;
-  city: string;
-  state: string;
-  country: string;
+    address: string;
+    city: string;
+    state: string;
+    country: string;
 
-  googleMapsUrl: string;
-
-  mapImage: string;
-}
+    googleMapsUrl: string;
+    embedUrl: string;
+  };
 }

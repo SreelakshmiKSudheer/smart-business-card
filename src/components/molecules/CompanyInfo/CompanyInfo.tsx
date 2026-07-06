@@ -34,12 +34,6 @@ export default function CompanyInfo({
 
       </p>
 
-      <p className="mt-5 text-slate-500">
-
-        📍 {company.address}
-
-      </p>
-
     </div>
   );
 }
