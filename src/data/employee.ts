@@ -11,7 +11,7 @@ export const employee: Employee = {
 
   businessUnit: "Cloud Consulting",
 
-  profileImage: "/images/profile.png",
+  profileImage: "/images/profile.jpg",
 
   about:
     "Helping enterprises build scalable cloud solutions and digital transformation initiatives.",

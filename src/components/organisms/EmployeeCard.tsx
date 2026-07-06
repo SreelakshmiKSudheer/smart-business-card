@@ -1,7 +1,7 @@
 import EmployeeInfo from "../molecules/EmployeeInfo";
 import AboutCard from "../molecules/AboutCard";
 
-import profileImage from "../../assets/images/profile.png";
+import profileImage from "../../assets/images/profile.jpg";
 
 export default function EmployeeCard() {
   return (

@@ -1,5 +1,5 @@
 .avatar {
-  border-radius: 50%;
+  border-radius: 20%;
   object-fit: cover;
   display: block;
 }
