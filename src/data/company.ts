@@ -1,6 +1,6 @@
-import logo from "../assets/images/tarento-logo.png";
-
+import tarentoLogo from "../assets/images/tarento-logo.png";
 import type { Company } from "../types/Company";
+import officeMap from "../assets/images/tarento-map.png";
 
 export const company: Company = {
   name: "Tarento Technologies Pvt. Ltd.",
@@ -16,5 +16,17 @@ export const company: Company = {
 
   address: "Bangalore, Karnataka, India",
 
-  logo,
+  logo: tarentoLogo
+
+  location: {
+    address: "Prestige Shantiniketan",
+    city: "Bengaluru",
+    state: "Karnataka",
+    country: "India",
+
+    googleMapsUrl:
+      "https://maps.google.com/...",
+
+    mapImage: officeMap,
+},
 };
