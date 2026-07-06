@@ -1,20 +1,20 @@
+import logo from "../assets/images/tarento-logo.png";
+
 import type { Company } from "../types/Company";
 
 export const company: Company = {
-  id: "COMP001",
+  name: "Tarento Technologies Pvt. Ltd.",
 
-  name: "Tarento",
-
-  tagline: "Co-Creating A Better Tomorrow",
+  tagline: "Co-Creating a Better Tomorrow",
 
   description:
-    "Tarento is a digital engineering company specializing in cloud, AI, enterprise modernization and product engineering.",
+    "Tarento is a global technology consulting company specializing in digital engineering, cloud transformation, AI, and enterprise solutions.",
 
-  website: "https://tarento.com",
+  website: "https://www.tarento.com",
 
-  linkedin: "https://linkedin.com/company/tarento",
+  linkedin: "https://www.linkedin.com/company/tarento",
 
-  logo: "/images/tarento-logo.png",
+  address: "Bangalore, Karnataka, India",
 
-  address: "Bengaluru, Karnataka, India"
+  logo,
 };

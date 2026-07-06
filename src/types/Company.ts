@@ -1,6 +1,4 @@
 export interface Company {
-  id: string;
-
   name: string;
 
   tagline: string;

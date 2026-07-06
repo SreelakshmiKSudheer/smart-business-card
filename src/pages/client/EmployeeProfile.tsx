@@ -1,4 +1,7 @@
 import HeroSection from "../../components/organisations/HeroSection";
+import CompanyCard from "../../components/organisms/CompanyCard";
+import { employee } from "../../data/employee";
+import { company } from "../../data/company";
 
 export default function EmployeeProfile() {
   return (
@@ -7,6 +10,7 @@ export default function EmployeeProfile() {
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-8">
 
         {/* Header */}
+
         <header className="flex h-20 items-center rounded-3xl bg-white px-8 shadow-md">
 
           <h1 className="text-3xl font-bold tracking-wide text-slate-800">
@@ -15,26 +19,21 @@ export default function EmployeeProfile() {
 
         </header>
 
-        {/* Hero Section */}
-        <HeroSection />
+        {/* Hero */}
 
-        {/* Company Section */}
+        <HeroSection employee={employee} />
+
+        {/* Company */}
+
         <section className="rounded-3xl bg-white p-8 shadow-md">
 
-          <h2 className="mb-4 text-2xl font-semibold">
-            About Tarento
-          </h2>
-
-          Company Section
+          <CompanyCard company={company}/>
 
         </section>
 
-        {/* Map */}
-        <section className="rounded-3xl bg-white p-8 shadow-md">
+        {/* Location */}
 
-          <h2 className="mb-4 text-2xl font-semibold">
-            Location
-          </h2>
+        <section className="rounded-3xl bg-white p-8 shadow-md">
 
           Google Map
 
@@ -44,7 +43,7 @@ export default function EmployeeProfile() {
 
         <footer className="pb-8 text-center text-gray-500">
 
-          © 2026 Tarento Technologies Pvt. Ltd.
+          © Tarento Technologies Pvt. Ltd.
 
         </footer>
 
