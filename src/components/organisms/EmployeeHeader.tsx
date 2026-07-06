@@ -4,7 +4,13 @@ import { useNavigate } from "react-router";
 import Button from "../atoms/buttons/Button";
 import tarentoLogo from "../../assets/images/tarento-logo.png";
 
-export default function EmployeeHeader() {
+interface EmployeeHeaderProps {
+  onNotificationClick?: () => void;
+}
+
+export default function EmployeeHeader({
+  onNotificationClick,
+}: EmployeeHeaderProps) {
   const navigate = useNavigate();
 
   return (
@@ -14,11 +20,11 @@ export default function EmployeeHeader() {
         top-0
         z-50
 
-        bg-white/95
-        backdrop-blur-md
-
         border-b
         border-slate-200
+
+        bg-white/95
+        backdrop-blur-md
       "
     >
       <div
@@ -43,24 +49,27 @@ export default function EmployeeHeader() {
 
         <div className="flex items-center gap-2">
 
+          {/* Notifications */}
+
           <Button
-            icon={<Bell size={22} />}
+            icon={<Bell size={18} />}
             variant="outline"
             color="primary"
-            size="sm"
             className="
               h-10
               w-10
               rounded-full
               p-0
             "
+            onClick={onNotificationClick}
           />
+
+          {/* Edit */}
 
           <Button
             icon={<Pencil size={18} />}
             variant="filled"
             color="primary"
-            size="sm"
             className="
               h-10
               w-10
@@ -71,6 +80,7 @@ export default function EmployeeHeader() {
           />
 
         </div>
+
       </div>
     </header>
   );

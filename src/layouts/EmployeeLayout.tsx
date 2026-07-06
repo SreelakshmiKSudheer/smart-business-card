@@ -1,16 +1,38 @@
-import EmployeeHeader from '../components/organisms/EmployeeHeader'
-import { Outlet } from 'react-router'
+import { Outlet } from "react-router";
+import { useState } from "react";
 
+import EmployeeHeader from "../components/organisms/EmployeeHeader";
+import NotificationDrawer from "../components/organisms/NotificationDrawer";
+import FloatingQRButton from "../components/molecules/FloatingQRButton";
 
-const EmployeeLayout = () => {
+export default function EmployeeLayout() {
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+
   return (
-    <div>
-        <EmployeeHeader/>
-        <main className="min-h-[calc(100vh-64px)] bg-(--bg)">
-            <Outlet />
-        </main>
-    </div>
-  )
-}
+    <div className="min-h-screen bg-slate-100">
 
-export default EmployeeLayout
+      {/* Header */}
+      <EmployeeHeader
+        onNotificationClick={() => setIsNotificationOpen(true)}
+      />
+
+      {/* Notification Drawer */}
+
+      <NotificationDrawer
+        open={isNotificationOpen}
+        onClose={() => setIsNotificationOpen(false)}
+      />
+
+      {/* Page */}
+
+      <main className="pb-24">
+        <Outlet />
+      </main>
+
+      {/* Floating QR */}
+
+      <FloatingQRButton />
+
+    </div>
+  );
+}
