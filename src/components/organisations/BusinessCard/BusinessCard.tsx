@@ -1,4 +1,4 @@
-import React from 'react'
+
 import HeroSection from '../HeroSection'
 import CompanyCard from '../../organisms/CompanyCard'
 import LocationCard from '../../organisms/LocationCard'

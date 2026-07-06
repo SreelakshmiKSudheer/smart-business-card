@@ -1,7 +1,6 @@
 import { Bell, Pencil } from "lucide-react";
 import { useNavigate } from "react-router";
 
-import Button from "../atoms/buttons/Button";
 import tarentoLogo from "../../assets/images/tarento-logo.png";
 
 interface EmployeeHeaderProps {
@@ -47,39 +46,62 @@ export default function EmployeeHeader({
 
         {/* Actions */}
 
-        <div className="flex items-center gap-2">
+<div className="flex items-center gap-3">
 
-          {/* Notifications */}
+  {/* Notifications */}
 
-          <Button
-            icon={<Bell size={18} />}
-            variant="outline"
-            color="primary"
-            className="
-              h-10
-              w-10
-              rounded-full
-              p-0
-            "
-            onClick={onNotificationClick}
-          />
+  <button
+    onClick={onNotificationClick}
+    className="
+      flex
+      h-10
+      w-10
+      items-center
+      justify-center
 
-          {/* Edit */}
+      rounded-full
 
-          <Button
-            icon={<Pencil size={18} />}
-            variant="filled"
-            color="primary"
-            className="
-              h-10
-              w-10
-              rounded-full
-              p-0
-            "
-            onClick={() => navigate("/employee/edit")}
-          />
+      border-2
+      border-[var(--dominant)]
 
-        </div>
+      bg-white
+
+      text-[var(--dominant)]
+
+      transition-all
+
+      hover:bg-[var(--bg)]
+    "
+  >
+    <Bell size={18} />
+  </button>
+
+  {/* Edit */}
+
+  <button
+    onClick={() => navigate("/employee/edit")}
+    className="
+      flex
+      h-10
+      w-10
+      items-center
+      justify-center
+
+      rounded-full
+
+      bg-[var(--dominant)]
+
+      text-white
+
+      transition-all
+
+      hover:bg-[var(--dominant-alt)]
+    "
+  >
+    <Pencil size={18} />
+  </button>
+
+</div>
 
       </div>
     </header>
