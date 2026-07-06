@@ -17,7 +17,7 @@ interface NavItem {
   icon: React.ReactNode;
 }
 
-const Dashboard: React.FC = () => {
+const AdminDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('overview');
 
   const navItems: NavItem[] = [
@@ -221,4 +221,4 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, value, icon, iconBg, ico
   );
 }
 
-export default Dashboard
+export default AdminDashboard
