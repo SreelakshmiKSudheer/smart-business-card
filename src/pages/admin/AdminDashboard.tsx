@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { LayoutGrid, Users, Settings, Search, TrendingUp, AlertCircle } from 'lucide-react'
-import logoImg from '../../assets/images/logoImg.png'
 import companyLogo from '../../assets/images/companyLogo.png'
 import tarentoOffice from '../../assets/images/tarento-office.png'
 import MapCard from '../../components/molecules/MapCard'
 import { company } from '../../data/company'
 import MetricCard from '../../components/molecules/MetricCard'
+import ScanAreaChart from "../../components/atoms/graphs/AreaChart";
 
+import DashboardMasthead from '../../components/atoms/DashboardMasthead' // Adjust import path as needed
 
 interface NavItem {
   id: string;
@@ -35,7 +36,7 @@ const AdminDashboard: React.FC = () => {
           {/* Welcome Dashboard Masthead */}
           <div className="bg-[#051625] rounded-xl p-10 text-white">
             <h1 className="text-3xl font-semibold mb-2">Welcome back, Admin.</h1>
-            <p className="text-base text-[--dominant-alt] max-w-150 leading-normal">
+            <p className="text-base text-[--dominant-alt] max-w-[600px] leading-normal">
               Manage your organization's digital identity and track active employee credentials across all business lines.
             </p>
           </div>
@@ -84,7 +85,7 @@ const AdminDashboard: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[0.75rem] text-[#94a3b8] block">Founded</span>
-                  <strong className="text-sm text-[#334155]">2012</strong>
+                  <strong className="text-sm text-[#334155]">2010</strong>
                 </div>
               </div>
             </div>
@@ -117,8 +118,62 @@ const AdminDashboard: React.FC = () => {
 
           </div>
 
-          {/* Location Map Card */}
-          <MapCard embedUrl={company.location.embedUrl} />
+         {/* Location Map Card */}
+
+<MapCard embedUrl={company.location.embedUrl} />
+
+{/* Company Scan Analytics */}
+
+<section
+  className="
+    rounded-xl
+    border
+    border-slate-200
+    bg-white
+    p-8
+  "
+>
+  <div className="mb-6">
+
+    <h2 className="text-2xl font-bold text-slate-900">
+      Company Scan Analytics
+    </h2>
+
+    <p className="mt-2 text-slate-500">
+      Monitor digital business card engagement across the organization.
+    </p>
+
+  </div>
+<div className="mb-8 flex flex-wrap gap-5">
+
+  <MetricCard
+    title="Total Scans"
+    value="5,284"
+    icon={<TrendingUp size={20} />}
+    iconBg="bg-emerald-100"
+    iconColor="text-emerald-700"
+  />
+
+  <MetricCard
+    title="Today's Scans"
+    value="84"
+    icon={<Search size={20} />}
+    iconBg="bg-blue-100"
+    iconColor="text-blue-700"
+  />
+
+  <MetricCard
+    title="This Week"
+    value="642"
+    icon={<LayoutGrid size={20} />}
+    iconBg="bg-orange-100"
+    iconColor="text-orange-700"
+  />
+
+</div>
+  <ScanAreaChart />
+
+</section>
         </main>
 
         {/* SYSTEM BOTTOM LEGAL SUBFOOTER */}
