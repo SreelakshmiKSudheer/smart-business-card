@@ -63,14 +63,13 @@ const AdminEmployees = () => {
 
 
   return (
-    <div className='w-full h-full flex flex-col gap-4 bg-(--background)'>
-      {/* top heading and filter */}
-      <div className='flex flex-wrap gap-1 p-4 bg-(--card) justify-between items-center rounded-md shadow-lg'>
+    <div className='flex h-full w-full flex-col gap-4 bg-(--background)'>
+      <div className='flex flex-wrap items-center justify-between gap-3 rounded-md bg-(--card) p-4 shadow-lg'>
         <div>
-          <h1 className="text-2xl font-bold text-(--text) w-fit">Employees</h1>
+          <h1 className="w-fit text-2xl font-bold text-(--text)">Employees</h1>
           <p className="text-sm text-(--text-light)">Manage your employees and their profiles.</p>
         </div>
-        <div className='flex justify-end  gap-4'>
+        <div className='flex flex-wrap justify-end gap-3'>
           <Input icon={<Search className="h-5 w-5" />} placeholder="Search employees by name, email..." />
           <div className="relative">
             <Button
@@ -90,34 +89,34 @@ const AdminEmployees = () => {
           </div>
         </div>
       </div>
-      {/* metric cards */}
-      <div className='flex flex-wrap w-full justify-between items-center gap-4'>
-            <MetricCard 
-              title="Total Employees" 
-              value="1,284" 
-              icon={<Users className="h-5 w-5" />} 
-              iconBg="bg-[#ccfbf1]" 
-              iconColor="text-[#0d9488]" 
-            />
-            <MetricCard 
-              title="Review Required" 
-              value="12" 
-              icon={<AlertCircle className="h-5 w-5" />} 
-              iconBg="bg-[#fee2e2]" 
-              iconColor="text-[#ef4444]" 
-            />
-            <MetricCard 
-              title="Weekly Scans" 
-              value="+12.5%" 
-              icon={<TrendingUp className="h-5 w-5" />} 
-              iconBg="bg-[#dbeafe]" 
-              iconColor="text-[#2563eb]" 
-            />
+
+      <div className='grid w-full grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3'>
+        <MetricCard
+          title="Total Employees"
+          value="1,284"
+          icon={<Users className="h-5 w-5" />}
+          iconBg="bg-[#ccfbf1]"
+          iconColor="text-[#0d9488]"
+        />
+        <MetricCard
+          title="Review Required"
+          value="12"
+          icon={<AlertCircle className="h-5 w-5" />}
+          iconBg="bg-[#fee2e2]"
+          iconColor="text-[#ef4444]"
+        />
+        <MetricCard
+          title="Weekly Scans"
+          value="+12.5%"
+          icon={<TrendingUp className="h-5 w-5" />}
+          iconBg="bg-[#dbeafe]"
+          iconColor="text-[#2563eb]"
+        />
       </div>
-      {/* employees and approval requests */}
-      <div className='flex flex-wrap md:flex-no-wrap gap-4 justify-between items-start'>
-        <div className='flex flex-col gap-4 w-fit'>
-          <div className='flex flex-wrap  gap-4 justify-around items-start'>
+
+      <div className='grid w-full grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(18rem,24rem)]'>
+        <div className='flex flex-col gap-4'>
+          <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4'>
             <EmployeeAdminCard
               name="Alex Stratos"
               role="Product Design"
@@ -142,10 +141,8 @@ const AdminEmployees = () => {
               designation="Senior UX Researcher"
               image={profileImage}
             />
-          
-        
           </div>
-          <div className='flex flex-wrap  gap-4 justify-around items-start'>
+          <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4'>
             <EmployeeAdminCard
               name="Alex Stratos"
               role="Product Design"
@@ -169,7 +166,7 @@ const AdminEmployees = () => {
               role="Product Design"
               designation="Senior UX Researcher"
               image={profileImage}
-            />       
+            />
           </div>
           <Pagination
             currentPage={page}
@@ -178,7 +175,9 @@ const AdminEmployees = () => {
             onPageChange={setPage}
           />
         </div>
-        <ApprovalGroup {...approvalGroups} />
+        <div className='w-full lg:justify-self-end'>
+          <ApprovalGroup {...approvalGroups} />
+        </div>
       </div>
     </div>
   )

@@ -67,23 +67,17 @@ const AdminSettings: React.FC = () => {
 
   return (
     <div
-      className="flex min-h-screen min-w-full font-sans transition-colors duration-200"
+      className="min-h-screen w-full font-sans transition-colors duration-200"
       style={{ backgroundColor: "var(--bg)" }}
     >
-      
-      
-      {/* ================= MAIN INTERFACE BODY ================= */}
-      <div className="flex flex-col grow">
-        
-        {/* TOP COMPACT TITLE HEADER */}
-        <header >
-          <h1 className="text-2xl font-bold text-[#111827] mb-1">Admin Settings</h1>
+      <div className="mx-auto flex w-full max-w-none flex-col px-4 py-6 sm:px-6 lg:px-8 lg:py-8 xl:px-10">
+        <header className="mb-6">
+          <h1 className="mb-1 text-2xl font-bold text-[#111827]">Admin Settings</h1>
           <p className="text-sm text-[#64748b]">Manage your organization's global identity and security protocols.</p>
         </header>
 
-        {/* SETTINGS CARD CONTAINER */}
-        <main className="flex grow flex-col gap-6 overflow-y-auto px-4 pb-6 sm:px-6 sm:pb-8 lg:px-10 lg:pb-10">
-          <div className="bg-white rounded-xl p-8 border border-solid border-[#e2e8f0] flex flex-col gap-6">
+        <main className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 rounded-xl border border-solid border-[#e2e8f0] bg-white p-4 sm:p-6 lg:p-8">
             
             {/* Header: Customise Branding */}
             <div className="flex items-center gap-2 text-[#1e293b] font-semibold text-lg">
@@ -92,10 +86,10 @@ const AdminSettings: React.FC = () => {
             </div>
 
             {/* Logo & Asset Upload Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-transparent">
+            <div className="grid grid-cols-1 gap-6 items-center bg-transparent lg:grid-cols-2 lg:gap-8">
               {/* Organization Logo Custom Box */}
-              <div className="flex items-center gap-4">
-                <div className="relative flex h-17.5 w-45 items-center justify-center rounded-lg border border-dashed border-[#cbd5e1] bg-[#f8fafc] p-4 sm:h-17.5 sm:w-48">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <div className="relative flex h-28 w-28 items-center justify-center rounded-lg border border-dashed border-[#cbd5e1] bg-[#f8fafc] p-4 sm:h-36 sm:w-36 lg:h-44 lg:w-44">
                   <img src={companyLogo} alt="Organization Upload Preview" className="max-h-full max-w-full object-contain" />
                   <button className="absolute -bottom-2 -right-2 w-6 h-6 bg-[#1e293b] rounded-full flex items-center justify-center text-white border-none cursor-pointer">
                     <PenTool className="h-3 w-3" />
@@ -116,8 +110,8 @@ const AdminSettings: React.FC = () => {
               </div>
 
               {/* Organization Cover Image block */}
-              <div className="flex items-center gap-4">
-                <div className="relative flex h-45 w-45 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-solid border-[#cbd5e1] bg-[#f8fafc] sm:h-48 sm:w-48">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <div className="relative flex h-32 w-32 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-solid border-[#cbd5e1] bg-[#f8fafc] sm:h-40 sm:w-40 lg:h-48 lg:w-48">
                   <img 
                     src={tarentoOffice} 
                     alt="Organization Cover Preview" 
@@ -163,7 +157,7 @@ const AdminSettings: React.FC = () => {
             </div>
 
             {/* Bottom Form Section: Two-Column Split Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1.1fr] gap-8 items-start mt-2">
+            <div className="mt-2 grid grid-cols-1 items-start gap-8 xl:grid-cols-[1.4fr_0.9fr]">
               
               {/* Left Side Metadata Inputs & Geolocation Map View */}
               <div className="flex flex-col gap-4">
@@ -190,7 +184,7 @@ const AdminSettings: React.FC = () => {
               </div>
 
               {/* Right Side Brand Color Scheme Customizer */}
-              <div className="bg-white border border-solid border-[#e2e8f0] rounded-xl p-6 flex flex-col gap-5">
+              <div className="flex w-full flex-col gap-5 rounded-xl border border-solid border-[#e2e8f0] bg-white p-4 sm:p-6">
                 <div className="flex items-center gap-2 text-sm font-bold text-[#1e293b]">
                   <PenTool className="h-4 w-4" />
                   <h3>Custom Brand Palette</h3>
@@ -281,7 +275,7 @@ const AdminSettings: React.FC = () => {
             </div>
 
             {/* Bottom Absolute Master Save Trigger */}
-            <div className="flex justify-end mt-4">
+            <div className="mt-4 flex justify-end">
               <Button 
                 text="Save Changes"
                 onClick={applyGlobalTheme}
@@ -292,7 +286,6 @@ const AdminSettings: React.FC = () => {
           </div>
         </main>
       </div>
-
     </div>
   )
 }
