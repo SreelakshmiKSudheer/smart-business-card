@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Users, Search, TrendingUp, AlertCircle, BarChart3 } from "lucide-react";
 
 import companyLogo from "../../assets/images/companyLogo.png";
@@ -10,55 +9,10 @@ import MapCard from "../../components/molecules/MapCard";
 import ScanAreaChart from "../../components/atoms/graphs/AreaChart";
 
 import { company } from "../../data/company";
-=======
-import React, { useState } from 'react'
-import { LayoutGrid, Users, Settings, Search, TrendingUp, AlertCircle } from 'lucide-react'
-import companyLogo from '../../assets/images/companyLogo.png'
-import tarentoOffice from '../../assets/images/tarento-office.png'
-import MapCard from '../../components/molecules/MapCard'
-import { company } from '../../data/company'
-import MetricCard from '../../components/molecules/MetricCard'
-import ScanAreaChart from "../../components/atoms/graphs/AreaChart";
-
-import DashboardMasthead from '../../components/atoms/DashboardMasthead' // Adjust import path as needed
-
-interface NavItem {
-  id: string;
-  label: string;
-  icon: React.ReactNode;
-}
-
-const AdminDashboard: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>('overview');
-
-  const navItems: NavItem[] = [
-    { id: 'overview', label: 'Overview', icon: <LayoutGrid size={18} /> },
-    { id: 'employees', label: 'Employees', icon: <Users size={18} /> },
-    { id: 'settings', label: 'Settings', icon: <Settings size={18} /> },
-  ];
->>>>>>> f988651120e6a1d71f7d15ae1854f04c7392e7e0
 
 export default function AdminDashboard() {
   return (
-<<<<<<< HEAD
     <div className="min-h-screen bg-slate-100">
-=======
-    <div className="w-full flex min-h-screen bg-[#f4f6fa] font-sans">
-      
-      {/* ================= MAIN INTERFACE BODY ================= */}
-      <div className="flex-grow flex flex-col">
-        
-        {/* CONTENT ROW/GRID LAYOUT CONTAINER */}
-        <main className="p-10 flex-grow overflow-y-auto flex flex-col gap-6">
-          
-          {/* Welcome Dashboard Masthead */}
-          <div className="bg-[#051625] rounded-xl p-10 text-white">
-            <h1 className="text-3xl font-semibold mb-2">Welcome back, Admin.</h1>
-            <p className="text-base text-[--dominant-alt] max-w-[600px] leading-normal">
-              Manage your organization's digital identity and track active employee credentials across all business lines.
-            </p>
-          </div>
->>>>>>> f988651120e6a1d71f7d15ae1854f04c7392e7e0
 
       <main className="mx-auto flex max-w-7xl flex-col gap-8 px-8 py-8">
 
