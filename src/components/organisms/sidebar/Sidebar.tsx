@@ -37,43 +37,84 @@ const sidebarItems = [
 const Sidebar = () => {
   const navigate = useNavigate();
 
+  // Desktop collapse state
   const [collapsed, setCollapsed] = useState(false);
 
+  // Mobile drawer state
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   return (
-    <aside
-      className={`
-        h-screen
-        bg-(--card)
-        border-r
-        border-(--border)
-        transition-all
-        duration-300
-        flex
-        flex-col
-        ${collapsed ? "w-20" : "w-72"}
-      `}
-    >
-      {/* Header */}
-
-      <div className="flex items-center justify-between p-4">
-        {!collapsed && (
-          <h1 className="text-xl font-bold text-(--text)">
-            Admin
-          </h1>
-        )}
-
+    <div>
+      {/* Mobile Toggle Button */}
+      <div className="fixed top-4 left-4 z-50 md:hidden">
         <Button
           variant="none"
-          icon={
-            collapsed ? (
-              <PanelLeftOpen size={20} />
-            ) : (
-              <PanelLeftClose size={20} />
-            )
-          }
-          onClick={() => setCollapsed(!collapsed)}
+          icon={<PanelLeftOpen size={22} />}
+          onClick={() => setMobileOpen(true)}
         />
       </div>
+
+      {/* Mobile Overlay */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/40 md:hidden"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
+
+      {/* Sidebar */}
+      <aside
+        className={`
+          fixed md:static
+          top-0 left-0 z-50
+          h-screen
+          bg-(--card)
+          border-r border-(--border)
+          transition-all duration-300
+          flex flex-col
+
+          ${
+            mobileOpen
+              ? "translate-x-0"
+              : "-translate-x-full md:translate-x-0"
+          }
+
+          ${collapsed ? "md:w-20" : "md:w-60"}
+          w-60
+        `}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between p-4">
+          {!collapsed && (
+            <h1 className="text-xl font-bold text-(--text)">
+              Admin
+            </h1>
+          )}
+
+          {/* Desktop collapse button */}
+          <div className="hidden md:block">
+            <Button
+              variant="none"
+              icon={
+                collapsed ? (
+                  <PanelLeftOpen size={20} />
+                ) : (
+                  <PanelLeftClose size={20} />
+                )
+              }
+              onClick={() => setCollapsed(!collapsed)}
+            />
+          </div>
+
+          {/* Mobile close button */}
+          <div className="md:hidden">
+            <Button
+              variant="none"
+              icon={<PanelLeftClose size={20} />}
+              onClick={() => setMobileOpen(false)}
+            />
+          </div>
+        </div>
 
       {/* Navigation */}
 
@@ -110,6 +151,7 @@ const Sidebar = () => {
         })}
       </nav>
     </aside>
+    </div>
   );
 };
 
