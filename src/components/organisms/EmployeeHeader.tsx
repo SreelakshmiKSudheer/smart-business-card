@@ -1,14 +1,21 @@
-import { Bell, Pencil } from "lucide-react";
+import type { ReactNode } from "react";
+import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router";
 
 import tarentoLogo from "../../assets/images/tarento-logo.png";
 
 interface EmployeeHeaderProps {
-  onNotificationClick?: () => void;
+  logo?: boolean;
+  showBack?: boolean;
+  title?: string;
+  rightContent?: ReactNode;
 }
 
 export default function EmployeeHeader({
-  onNotificationClick,
+  logo = false,
+  showBack = false,
+  title,
+  rightContent,
 }: EmployeeHeaderProps) {
   const navigate = useNavigate();
 
@@ -18,10 +25,8 @@ export default function EmployeeHeader({
         sticky
         top-0
         z-50
-
         border-b
         border-slate-200
-
         bg-white/95
         backdrop-blur-md
       "
@@ -36,73 +41,51 @@ export default function EmployeeHeader({
           px-5
         "
       >
-        {/* Company Logo */}
+        {/* Left */}
 
-        <img
-          src={tarentoLogo}
-          alt="Tarento"
-          className="h-9 object-contain"
-        />
+        {logo ? (
+          <img
+            src={tarentoLogo}
+            alt="Tarento"
+            className="h-9 object-contain"
+          />
+        ) : (
+          <div className="flex items-center gap-3">
+            {showBack && (
+              <button
+                onClick={() => navigate(-1)}
+                className="
+                  flex
+                  h-10
+                  w-10
+                  items-center
+                  justify-center
+                  rounded-full
+                  hover:bg-slate-100
+                  transition
+                "
+              >
+                <ArrowLeft size={22} />
+              </button>
+            )}
 
-        {/* Actions */}
+            {title && (
+              <h1 className="text-lg font-semibold text-slate-900">
+                {title}
+              </h1>
+            )}
+          </div>
+        )}
 
-<div className="flex items-center gap-3">
+        {/* Right */}
 
-  {/* Notifications */}
-
-  <button
-    onClick={onNotificationClick}
-    className="
-      flex
-      h-10
-      w-10
-      items-center
-      justify-center
-
-      rounded-full
-
-      border-2
-      border-[var(--dominant)]
-
-      bg-white
-
-      text-[var(--dominant)]
-
-      transition-all
-
-      hover:bg-[var(--bg)]
-    "
-  >
-    <Bell size={18} />
-  </button>
-
-  {/* Edit */}
-
-  <button
-    onClick={() => navigate("/employee/edit")}
-    className="
-      flex
-      h-10
-      w-10
-      items-center
-      justify-center
-
-      rounded-full
-
-      bg-[var(--dominant)]
-
-      text-white
-
-      transition-all
-
-      hover:bg-[var(--dominant-alt)]
-    "
-  >
-    <Pencil size={18} />
-  </button>
-
-</div>
-
+        {rightContent ? (
+  <div className="flex items-center gap-2">
+    {rightContent}
+  </div>
+) : (
+  <div className="w-10" />
+)}
       </div>
     </header>
   );
