@@ -6,6 +6,7 @@ import tarentoOffice from '../../assets/images/tarento-office.png'
 import MapCard from '../../components/molecules/MapCard'
 import { company } from '../../data/company'
 import MetricCard from '../../components/molecules/MetricCard'
+import ScanAreaChart from "../../components/atoms/graphs/AreaChart";
 
 
 interface NavItem {
@@ -117,8 +118,62 @@ const AdminDashboard: React.FC = () => {
 
           </div>
 
-          {/* Location Map Card */}
-          <MapCard embedUrl={company.location.embedUrl} />
+         {/* Location Map Card */}
+
+<MapCard embedUrl={company.location.embedUrl} />
+
+{/* Company Scan Analytics */}
+
+<section
+  className="
+    rounded-xl
+    border
+    border-slate-200
+    bg-white
+    p-8
+  "
+>
+  <div className="mb-6">
+
+    <h2 className="text-2xl font-bold text-slate-900">
+      Company Scan Analytics
+    </h2>
+
+    <p className="mt-2 text-slate-500">
+      Monitor digital business card engagement across the organization.
+    </p>
+
+  </div>
+<div className="mb-8 flex flex-wrap gap-5">
+
+  <MetricCard
+    title="Total Scans"
+    value="5,284"
+    icon={<TrendingUp size={20} />}
+    iconBg="bg-emerald-100"
+    iconColor="text-emerald-700"
+  />
+
+  <MetricCard
+    title="Today's Scans"
+    value="84"
+    icon={<Search size={20} />}
+    iconBg="bg-blue-100"
+    iconColor="text-blue-700"
+  />
+
+  <MetricCard
+    title="This Week"
+    value="642"
+    icon={<LayoutGrid size={20} />}
+    iconBg="bg-orange-100"
+    iconColor="text-orange-700"
+  />
+
+</div>
+  <ScanAreaChart />
+
+</section>
         </main>
 
         {/* SYSTEM BOTTOM LEGAL SUBFOOTER */}
