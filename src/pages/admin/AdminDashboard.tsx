@@ -14,7 +14,16 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-slate-100">
 
-      <main className="mx-auto flex max-w-7xl flex-col gap-8 px-8 py-8">
+     <main
+  className="
+    w-full
+    flex
+    flex-col
+    gap-8
+    px-8
+    py-8
+  "
+>
 
         {/* Dashboard Header */}
 
