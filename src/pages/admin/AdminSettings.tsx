@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { LayoutGrid, Users, Settings as SettingsIcon, LogOut, Palette, Upload, PenTool } from 'lucide-react'
-import companyLogo from '../../assets/images/companyLogo.png' // Adjust the import path to where your image is saved
-import logoImg from '../../assets/images/logoImg.png' // Adjust the import path to where your image is saved
+import companyLogo from '../../assets/images/companyLogo.png' 
+import logoImg from '../../assets/images/logoImg.png' 
 import MapCard from '../../components/molecules/MapCard';
 import { company } from '../../data/company';
 
+// Import the atomic and molecular components
+import Button from '../../components/atoms/buttons/Button.tsx'; // Adjust path as necessary
+import LabelInput from '../../components/molecules/LabelInput'; // Adjust path as necessary
 
 interface NavItem {
   id: string;
@@ -47,7 +50,7 @@ const AdminSettings: React.FC = () => {
             {/* Logo & Asset Upload Row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-transparent">
               
-              {/* Organization Logo Custom Box (Replaced text with Image block) */}
+              {/* Organization Logo Custom Box */}
               <div className="flex items-center gap-4">
                 <div className="relative border border-dashed border-[#cbd5e1] p-4 rounded-lg bg-[#f8fafc] w-[180px] h-[70px] flex items-center justify-center">
                   <img src={companyLogo} alt="Organization Upload Preview" className="max-h-full max-w-full object-contain" />
@@ -58,10 +61,14 @@ const AdminSettings: React.FC = () => {
                 <div className="flex flex-col gap-2">
                   <span className="text-[11px] font-bold text-[#64748b] uppercase tracking-wider block">Organization Logo</span>
                   <p className="text-xs text-[#94a3b8] m-0 leading-tight">Upload a high-resolution PNG or SVG.<br/>Recommended size 512×512px.</p>
-                  <button className="flex items-center gap-1.5 bg-[#005a5b] text-white text-xs px-3 py-1.5 rounded font-medium border-none cursor-pointer w-fit mt-1">
-                    <Upload size={12} />
-                    <span>Upload Logo</span>
-                  </button>
+                  
+                  <Button 
+                    text="Upload Logo"
+                    icon={<Upload size={12} />}
+                    iconPosition="left"
+                    size="sm"
+                    className="bg-[#005a5b] text-white border-none w-fit mt-1"
+                  />
                 </div>
               </div>
 
@@ -73,10 +80,14 @@ const AdminSettings: React.FC = () => {
                 <div className="flex flex-col gap-2">
                   <span className="text-[11px] font-bold text-[#64748b] uppercase tracking-wider block">Organization Image</span>
                   <p className="text-xs text-[#94a3b8] m-0 leading-tight">Upload a high-resolution PNG or SVG.<br/>Recommended size 512×512px.</p>
-                  <button className="flex items-center gap-1.5 bg-[#005a5b] text-white text-xs px-3 py-1.5 rounded font-medium border-none cursor-pointer w-fit mt-1">
-                    <Upload size={12} />
-                    <span>Upload Image</span>
-                  </button>
+                  
+                  <Button 
+                    text="Upload Image"
+                    icon={<Upload size={12} />}
+                    iconPosition="left"
+                    size="sm"
+                    className="bg-[#005a5b] text-white border-none w-fit mt-1"
+                  />
                 </div>
               </div>
 
@@ -84,45 +95,45 @@ const AdminSettings: React.FC = () => {
 
             <hr className="border-t border-solid border-[#e2e8f0] my-2" />
 
-            {/* Standard Text Details Section Inputs */}
+            {/* Standard Text Details Section Inputs using LabelInput */}
             <div className="flex flex-col gap-4">
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[11px] font-bold text-[#64748b] uppercase tracking-wider">Organization Name</label>
-                <input type="text" defaultValue="Tarento Technologies Pvt. Ltd" className="w-full bg-[#f0f4fc] border-none rounded p-3 text-sm text-[#1e293b] outline-none font-medium" />
-              </div>
+              <LabelInput 
+                label={{ text: "Organization Name", className: "text-[11px] font-bold text-[#64748b] uppercase tracking-wider" }}
+                input={{ type: "text", defaultValue: "Tarento Technologies Pvt. Ltd", className: "w-full bg-[#f0f4fc] border-none rounded p-3 text-sm text-[#1e293b] outline-none font-medium" }}
+              />
 
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[11px] font-bold text-[#64748b] uppercase tracking-wider">Tagline</label>
-                <input type="text" defaultValue="Co-Creating a Better Tomorrow" className="w-full bg-[#f0f4fc] border-none rounded p-3 text-sm text-[#1e293b] outline-none font-medium" />
-              </div>
+              <LabelInput 
+                label={{ text: "Tagline", className: "text-[11px] font-bold text-[#64748b] uppercase tracking-wider" }}
+                input={{ type: "text", defaultValue: "Co-Creating a Better Tomorrow", className: "w-full bg-[#f0f4fc] border-none rounded p-3 text-sm text-[#1e293b] outline-none font-medium" }}
+              />
 
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[11px] font-bold text-[#64748b] uppercase tracking-wider">Organization Details</label>
-                <textarea rows={4} defaultValue="In a fast paced world, you need an IT Services partner with a proven track record in providing Enterprise, Digital, Data and AI services and solutions. As a Nordic-Indo IT Services company, Tarento has been working with aspiring business leaders for more than a decade." className="w-full bg-[#f0f4fc] border-none rounded p-3 text-sm text-[#1e293b] outline-none font-medium resize-none leading-relaxed" />
-              </div>
+              <LabelInput 
+                label={{ text: "Organization Details", className: "text-[11px] font-bold text-[#64748b] uppercase tracking-wider" }}
+                input={{ isTextArea: true, rows: 4, defaultValue: "In a fast paced world, you need an IT Services partner with a proven track record in providing Enterprise, Digital, Data and AI services and solutions. As a Nordic-Indo IT Services company, Tarento has been working with aspiring business leaders for more than a decade.", className: "w-full bg-[#f0f4fc] border-none rounded p-3 text-sm text-[#1e293b] outline-none font-medium resize-none leading-relaxed" }}
+              />
             </div>
 
             {/* Bottom Form Section: Two-Column Split Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1.1fr] gap-8 items-start mt-2">
               
-              {/* Left Side Metadata Inputs & Geolocation Map View */}
+              {/* Left Side Metadata Inputs via LabelInput & Geolocation Map View */}
               <div className="flex flex-col gap-4">
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-[#64748b] uppercase tracking-wider">Industry</label>
-                  <input type="text" defaultValue="IT Services & Digital Identity" className="w-full bg-[#f0f4fc] border-none rounded p-3 text-sm text-[#1e293b] outline-none font-medium" />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-[#64748b] uppercase tracking-wider">Year</label>
-                  <input type="text" defaultValue="2012" className="w-full bg-[#f0f4fc] border-none rounded p-3 text-sm text-[#1e293b] outline-none font-medium" />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-[#64748b] uppercase tracking-wider">Organization Website</label>
-                  <input type="text" defaultValue="https://www.tarento.com" className="w-full bg-[#f0f4fc] border-none rounded p-3 text-sm text-[#1e293b] outline-none font-medium" />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-[#64748b] uppercase tracking-wider">LinkedIn URL</label>
-                  <input type="text" defaultValue="https://www.linkedin.com/company/tarento-group" className="w-full bg-[#f0f4fc] border-none rounded p-3 text-sm text-[#1e293b] outline-none font-medium" />
-                </div>
+                <LabelInput 
+                  label={{ text: "Industry", className: "text-[11px] font-bold text-[#64748b] uppercase tracking-wider" }}
+                  input={{ type: "text", defaultValue: "IT Services & Digital Identity", className: "w-full bg-[#f0f4fc] border-none rounded p-3 text-sm text-[#1e293b] outline-none font-medium" }}
+                />
+                <LabelInput 
+                  label={{ text: "Year", className: "text-[11px] font-bold text-[#64748b] uppercase tracking-wider" }}
+                  input={{ type: "text", defaultValue: "2012", className: "w-full bg-[#f0f4fc] border-none rounded p-3 text-sm text-[#1e293b] outline-none font-medium" }}
+                />
+                <LabelInput 
+                  label={{ text: "Organization Website", className: "text-[11px] font-bold text-[#64748b] uppercase tracking-wider" }}
+                  input={{ type: "text", defaultValue: "https://www.tarento.com", className: "w-full bg-[#f0f4fc] border-none rounded p-3 text-sm text-[#1e293b] outline-none font-medium" }}
+                />
+                <LabelInput 
+                  label={{ text: "LinkedIn URL", className: "text-[11px] font-bold text-[#64748b] uppercase tracking-wider" }}
+                  input={{ type: "text", defaultValue: "https://www.linkedin.com/company/tarento-group", className: "w-full bg-[#f0f4fc] border-none rounded p-3 text-sm text-[#1e293b] outline-none font-medium" }}
+                />
                 
                 <div className="flex flex-col gap-1.5 mt-2">
                   <label className="text-[11px] font-bold text-[#64748b] uppercase tracking-wider">Location</label>
@@ -131,77 +142,65 @@ const AdminSettings: React.FC = () => {
               </div>
 
               {/* Right Side Brand Color Scheme Swatch Panel */}
-              <div className="bg-white border border-solid border-[#e2e8f0] rounded-xl p-6 flex flex-col gap-5">
-                <div className="flex items-center gap-2 text-sm font-bold text-[#1e293b]">
+              <div className="bg-[var(--card)] border border-solid border-[#e2e8f0] rounded-xl p-6 flex flex-col gap-5">
+                <div className="flex items-center gap-2 text-sm font-bold text-[var(--text-light)]">
                   <PenTool size={16} />
                   <h3>Brand Customization</h3>
                 </div>
 
                 {/* Color Fields */}
                 <div className="flex flex-col gap-4">
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[10px] font-bold text-[#94a3b8] uppercase tracking-wider">Primary Color</span>
-                    <div className="flex items-center justify-between bg-[#f0f4fc] rounded px-3 py-2 text-xs font-semibold text-[#1e293b]">
-                      <div className="flex items-center gap-2">
-                        <div className="w-5 h-5 bg-[#1B2B3A] rounded"></div>
-                        <span>#1B2B3A</span>
-                      </div>
-                      <div className="w-4 h-4 bg-[#1B2B3A] rounded-[2px]"></div>
-                    </div>
-                  </div>
-
+                  
+                  {/* Background Color Field */}
                   <div className="flex flex-col gap-1">
                     <span className="text-[10px] font-bold text-[#94a3b8] uppercase tracking-wider">Background Color</span>
-                    <div className="flex items-center justify-between bg-[#f0f4fc] rounded px-3 py-2 text-xs font-semibold text-[#1e293b]">
+                    <div className="flex items-center justify-between bg-[var(--bg)] rounded px-3 py-2 text-xs font-semibold text-[var(--text-light)]">
                       <div className="flex items-center gap-2">
-                        <div className="w-5 h-5 bg-[#1B2B3A] rounded"></div>
-                        <span>#1B2B3A</span>
+                        <div className="w-5 h-5 bg-[var(--bg)] rounded border border-solid border-gray-200"></div>
+                        <span>#EFF4FF</span>
                       </div>
-                      <div className="w-4 h-4 bg-[#1B2B3A] rounded-[2px]"></div>
                     </div>
                   </div>
 
+                  {/* Primary Color Field */}
                   <div className="flex flex-col gap-1">
-                    <span className="text-[10px] font-bold text-[#94a3b8] uppercase tracking-wider">Secondary Color 1</span>
-                    <div className="flex items-center justify-between bg-[#f0f4fc] rounded px-3 py-2 text-xs font-semibold text-[#1e293b]">
+                    <span className="text-[10px] font-bold text-[#94a3b8] uppercase tracking-wider">Primary Color</span>
+                    <div className="flex items-center justify-between bg-[var(--bg)] rounded px-3 py-2 text-xs font-semibold text-[var(--text-light)]">
                       <div className="flex items-center gap-2">
-                        <div className="w-5 h-5 bg-[#006A62] rounded"></div>
+                        <div className="w-5 h-5 bg-[var(--dominant)] rounded"></div>
                         <span>#006A62</span>
                       </div>
-                      <div className="w-4 h-4 bg-[#006A62] rounded-[2px]"></div>
                     </div>
                   </div>
 
+                  {/* Secondary Color Field */}
                   <div className="flex flex-col gap-1">
-                    <span className="text-[10px] font-bold text-[#94a3b8] uppercase tracking-wider">Secondary Color 2</span>
-                    <div className="flex items-center justify-between bg-[#f0f4fc] rounded px-3 py-2 text-xs font-semibold text-[#1e293b]">
+                    <span className="text-[10px] font-bold text-[#94a3b8] uppercase tracking-wider">Secondary Color</span>
+                    <div className="flex items-center justify-between bg-[var(--bg)] rounded px-3 py-2 text-xs font-semibold text-[var(--text-light)]">
                       <div className="flex items-center gap-2">
-                        <div className="w-5 h-5 bg-[#91F0E4] rounded"></div>
-                        <span>#91F0E4</span>
+                        <div className="w-5 h-5 bg-[var(--secondary)] rounded"></div>
+                        <span>#1B2B3A</span>
                       </div>
-                      <div className="w-4 h-4 bg-[#91F0E4] rounded-[2px]"></div>
                     </div>
                   </div>
-                </div>
 
-                {/* Sub-Brand Footer Identity Block (Replaced text with Image block) */}
-                <div className="flex items-center border-t border-solid border-[#f1f5f9] pt-4 w-full justify-center h-6">
-                  <img src="/image_b27523.png" alt="Footer Sub-Brand Logo" className="h-full max-w-full object-contain" />
                 </div>
 
                 {/* Apply Palette CTA */}
-                <button className="w-full bg-[#051625] text-white text-sm font-semibold py-2.5 rounded border-none cursor-pointer hover:bg-opacity-90 transition-opacity">
-                  Apply Changes
-                </button>
+                <Button 
+                  text="Apply Changes"
+                  fullWidth={true}
+                  className="bg-[var(--dominant)] text-white text-sm font-semibold py-2.5 border-none hover:bg-[var(--dominant-alt)] transition-colors"
+                />
               </div>
-
             </div>
 
             {/* Bottom Absolute Master Save Trigger */}
             <div className="flex justify-end mt-4">
-              <button className="bg-[#005a5b] text-white text-sm font-semibold px-6 py-2 rounded border-none cursor-pointer hover:bg-opacity-95 transition-opacity">
-                Save Changes
-              </button>
+              <Button 
+                text="Save Changes"
+                className="bg-[#005a5b] text-white text-sm font-semibold px-6 py-2 border-none hover:bg-opacity-95 transition-opacity"
+              />
             </div>
 
           </div>
@@ -212,4 +211,4 @@ const AdminSettings: React.FC = () => {
   )
 }
 
-export default AdminSettings
+export default AdminSettings;
