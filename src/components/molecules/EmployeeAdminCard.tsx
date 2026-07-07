@@ -25,13 +25,13 @@ const EmployeeAdminCard = ({
   return (
     <div
       onClick={() => navigate("/admin/employees/profile")}
-      className="w-full max-w-44 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg cursor-pointer sm:max-w-48"
+      className="w-full overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg cursor-pointer lg:min-h-[14rem]"
     >
       {/* Cover */}
       <div className={`h-16 bg-linear-to-r ${coverGradient}`} />
 
       {/* Profile */}
-      <div className="-mt-8 flex flex-col items-center px-4 pb-4">
+      <div className="-mt-8 flex flex-col items-center px-4 pb-4 lg:px-6">
         <img
           src={image}
           alt={imageAlt}

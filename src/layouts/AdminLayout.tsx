@@ -6,13 +6,14 @@ import { company } from '../data/company'
 
 const AdminLayout = () => {
   return (
-    <div className="flex h-screen">
-
+    <div className="flex h-screen w-full overflow-hidden">
       <Sidebar />
-      <div className="flex flex-col">
+      <div className="flex min-w-0 flex-1 flex-col">
         <Header />
-        <main className="flex-1 overflow-auto p-6 bg-(--bg) w-full">
-          <Outlet />
+        <main className="flex-1 overflow-auto bg-(--bg) p-4 sm:p-6 lg:p-8">
+          <div className="mx-auto w-full max-w-7xl">
+            <Outlet />
+          </div>
         </main>
         {/* <Footer company={company} /> */}
       </div>
