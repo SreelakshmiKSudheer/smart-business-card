@@ -11,10 +11,10 @@ const AdminLayout = () => {
       <Sidebar />
       <div className="flex flex-col">
         <Header />
-        <main className="flex-1 overflow-auto p-6 bg-(--bg)">
+        <main className="flex-1 overflow-auto p-6 bg-(--bg) w-full min-w-calc(100vw - 60)">
           <Outlet />
         </main>
-        <Footer company={company} />
+        {/* <Footer company={company} /> */}
       </div>
     </div>
   );

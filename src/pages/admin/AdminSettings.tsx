@@ -79,56 +79,14 @@ const AdminSettings: React.FC = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[var(--bg)] font-sans transition-colors duration-200">
+    <div className="flex min-h-screen bg-[var(--bg)] min-w-full font-sans transition-colors duration-200">
       
-      {/* ================= SIDEBAR NAVIGATION ================= */}
-      <aside className="w-[250px] bg-[#f0f4fc] flex flex-col py-6 border-r border-solid border-[#e2e8f0]">
-        <div className="px-6 mb-6">
-          <div className="flex items-center gap-3 bg-white px-3 py-2 rounded w-fit">
-            <img src={logoImg} alt="SBC Logo" className="w-7 h-7 object-contain" />
-            <span className="text-xl font-bold text-[#111827]">SBC</span>
-          </div>
-        </div>
-
-        <div className="px-6 mb-8">
-          <div className="h-8 w-36 flex items-center">
-            <img src={companyLogo} alt="Company Logo" className="h-full w-full object-contain object-left" />
-          </div>
-        </div>
-
-        <nav className="flex-grow flex flex-col gap-1 px-3">
-          {navItems.map((item) => {
-            const isActive = activeTab === item.id;
-            return (
-              <Button
-                key={item.id}
-                onClick={() => setActiveTab(item.id)}
-                variant={isActive ? "filled" : "outline"}
-                text={item.label}
-                icon={item.icon}
-                iconPosition="left"
-                className={`w-full justify-start border-none px-4 py-2.5 text-sm transition-all duration-200
-                  ${isActive ? 'bg-[var(--dominant)] text-white font-semibold' : 'bg-transparent text-[#64748b] font-medium hover:bg-gray-100'}`}
-              />
-            );
-          })}
-        </nav>
-
-        <div className="px-4 border-t border-solid border-[#cbd5e1] pt-4">
-          <Button 
-            text="Logout"
-            icon={<LogOut size={18} />}
-            iconPosition="left"
-            className="w-full justify-start bg-transparent border-none text-[#64748b] font-medium text-sm px-4 py-2.5"
-          />
-        </div>
-      </aside>
       
       {/* ================= MAIN INTERFACE BODY ================= */}
       <div className="flex-grow flex flex-col">
         
         {/* TOP COMPACT TITLE HEADER */}
-        <header className="pt-8 px-10 pb-4">
+        <header >
           <h1 className="text-2xl font-bold text-[#111827] mb-1">Admin Settings</h1>
           <p className="text-sm text-[#64748b]">Manage your organization's global identity and security protocols.</p>
         </header>
