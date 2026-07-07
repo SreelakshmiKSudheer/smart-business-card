@@ -25,7 +25,7 @@ const Login = () => {
       data.email === employeeCredentials.email &&
       data.password === employeeCredentials.password
     ) {
-      navigate("/employee/dashboard");
+      navigate("/employee/profile");
     } else {
       alert("Invalid email or password");
     }
