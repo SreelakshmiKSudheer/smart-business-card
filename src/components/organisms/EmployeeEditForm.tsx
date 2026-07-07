@@ -1,8 +1,10 @@
 import FormSection from "../molecules/FormSection";
 import Label from "../atoms/Label";
 import Input from "../atoms/Input";
+import { skills } from "../../data/skills";
 
 import type { Employee } from "../../types/Employee";
+import Chip from "../atoms/chip";
 interface EmployeeEditFormProps{
 
     employee: Employee;
@@ -28,27 +30,17 @@ export default function EmployeeEditForm({
           <div className="flex flex-col gap-2">
   <Label text="First Name" />
 
-  <Input
+<Input
   value={employee.firstName}
-  onChange={(e) =>
-    setEmployee({
-      ...employee,
-      firstName: e.target.value,
-    })
-  }
+  readOnly
 />
 </div>
          <div className="flex flex-col gap-2">
   <Label text="Last Name" />
 
-  <Input
+<Input
   value={employee.lastName}
-  onChange={(e) =>
-    setEmployee({
-      ...employee,
-      lastName: e.target.value,
-    })
-  }
+  readOnly
 />
 </div>
 
@@ -57,14 +49,9 @@ export default function EmployeeEditForm({
         <div className="flex flex-col gap-2">
   <Label text="Designation" />
 
-  <Input
+<Input
   value={employee.designation}
-  onChange={(e) =>
-    setEmployee({
-      ...employee,
-      designation: e.target.value,
-    })
-  }
+  readOnly
 />
 </div>
 
@@ -77,15 +64,10 @@ export default function EmployeeEditForm({
         <div className="flex flex-col gap-2">
   <Label text="Email" />
 
- <Input
+<Input
   type="email"
   value={employee.email}
-  onChange={(e) =>
-    setEmployee({
-      ...employee,
-      email: e.target.value,
-    })
-  }
+  readOnly
 />
 </div>
 
@@ -140,6 +122,73 @@ onChange={(e) =>
 </div>
 
       </FormSection>
+
+
+<FormSection title="Expertise">
+
+  <p className="text-sm text-(--text-light)">
+    Select up to 6 expertise areas.
+  </p>
+
+  <div className="mt-5 flex flex-wrap gap-3">
+
+    {skills.map((skill) => {
+
+      const selected =
+        employee.expertise.includes(skill);
+
+      const disabled =
+        !selected &&
+        employee.expertise.length >= 6;
+
+      return (
+        <Chip
+          key={skill}
+          label={skill}
+          selected={selected}
+          disabled={disabled}
+          onClick={() => {
+
+            if (selected) {
+
+              setEmployee({
+                ...employee,
+                expertise:
+                  employee.expertise.filter(
+                    (item) => item !== skill
+                  ),
+              });
+
+            } else {
+
+              if (
+                employee.expertise.length >= 6
+              )
+                return;
+
+              setEmployee({
+                ...employee,
+                expertise: [
+                  ...employee.expertise,
+                  skill,
+                ],
+              });
+
+            }
+
+          }}
+        />
+      );
+
+    })}
+
+  </div>
+
+  <p className="mt-5 text-sm text-(--text-light)">
+    {employee.expertise.length} / 6 Selected
+  </p>
+
+</FormSection>
 
     </div>
   );

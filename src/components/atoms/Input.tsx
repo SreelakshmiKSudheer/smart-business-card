@@ -38,9 +38,22 @@ const Input = ({ icon, className, isTextArea, ...props }: InputProps & TextAreaP
       )}
 
       <input
-        {...props}
-        className={`w-full bg-transparent p-2 focus:outline-none text-(--text-light) placeholder-(--text-light) ${className ?? ""}`}
-      />
+  {...props}
+  className={`
+    w-full
+    p-2
+    focus:outline-none
+    placeholder-(--text-light)
+
+    ${
+      props.readOnly
+        ? "cursor-not-allowed bg-slate-100 text-slate-500"
+        : "bg-transparent text-(--text-light)"
+    }
+
+    ${className ?? ""}
+  `}
+/>
     </div>
   );
 };

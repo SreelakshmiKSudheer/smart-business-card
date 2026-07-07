@@ -45,16 +45,16 @@ export default function PhonePreview({
       {/* Screen */}
 
       <div
-        className="
-          h-[760px]
-
-          overflow-y-auto
-
-          bg-slate-100
-        "
-      >
-        {children}
-      </div>
+  className="
+    flex
+    h-[760px]
+    flex-col
+    overflow-y-auto
+    bg-slate-100
+  "
+>
+  {children}
+</div>
     </div>
   );
 }
