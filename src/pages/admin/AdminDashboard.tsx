@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import { LayoutGrid, Users, Settings, Search, TrendingUp, AlertCircle } from 'lucide-react'
-import logoImg from '../../assets/images/logoImg.png'
 import companyLogo from '../../assets/images/companyLogo.png'
 import tarentoOffice from '../../assets/images/tarento-office.png'
 import MapCard from '../../components/molecules/MapCard'
 import { company } from '../../data/company'
 import MetricCard from '../../components/molecules/MetricCard'
+<<<<<<< HEAD
 import ScanAreaChart from "../../components/atoms/graphs/AreaChart";
 
+=======
+import DashboardMasthead from '../../components/atoms/DashboardMasthead' // Adjust import path as needed
+>>>>>>> 58876115c34ce4e05c2ea7d78801a71a3524e0c0
 
 interface NavItem {
   id: string;
@@ -33,13 +36,8 @@ const AdminDashboard: React.FC = () => {
         {/* CONTENT ROW/GRID LAYOUT CONTAINER */}
         <main className="p-10 flex-grow overflow-y-auto flex flex-col gap-6">
           
-          {/* Welcome Dashboard Masthead */}
-          <div className="bg-[#051625] rounded-xl p-10 text-white">
-            <h1 className="text-3xl font-semibold mb-2">Welcome back, Admin.</h1>
-            <p className="text-base text-[--dominant-alt] max-w-[600px] leading-normal">
-              Manage your organization's digital identity and track active employee credentials across all business lines.
-            </p>
-          </div>
+          {/* Reusable Welcome Dashboard Masthead */}
+          <DashboardMasthead adminName="Admin" />
 
           {/* Quick Metrics Flex Cards Row */}
           <div className="flex gap-6 flex-wrap">
@@ -85,7 +83,7 @@ const AdminDashboard: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[0.75rem] text-[#94a3b8] block">Founded</span>
-                  <strong className="text-sm text-[#334155]">2012</strong>
+                  <strong className="text-sm text-[#334155]">2010</strong>
                 </div>
               </div>
             </div>
