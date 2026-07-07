@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { LayoutGrid, Users, Settings as SettingsIcon, LogOut, Palette, Upload, PenTool } from 'lucide-react'
 import companyLogo from '../../assets/images/companyLogo.png' 
-import logoImg from '../../assets/images/logoImg.png'
 import tarentoOffice from '../../assets/images/tarento-office.png'
 import MapCard from '../../components/molecules/MapCard';
 import { company } from '../../data/company';
