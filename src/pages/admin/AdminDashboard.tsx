@@ -117,34 +117,51 @@ export default function AdminDashboard() {
 
           {/* LinkedIn */}
 
-          <section
-            className="relative overflow-hidden rounded-2xl border border-slate-200 bg-cover bg-center shadow-sm"
-            style={{
-              backgroundImage: `url(${tarentoOffice})`,
-            }}
-          >
+          <a
+  href={company.linkedin}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="block"
+>
+  <section
+    className="
+      relative
+      overflow-hidden
+      rounded-2xl
+      border
+      border-slate-200
+      bg-cover
+      bg-center
+      shadow-sm
+      transition
+      duration-300
+      hover:scale-[1.02]
+      hover:shadow-xl
+      cursor-pointer
+    "
+    style={{
+      backgroundImage: `url(${tarentoOffice})`,
+    }}
+  >
+    <div className="absolute inset-0 bg-black/45" />
 
-            <div className="absolute inset-0 bg-black/45" />
+    <div className="relative flex h-full flex-col items-center justify-center gap-6 p-8">
 
-            <div className="relative flex h-full flex-col items-center justify-center gap-6 p-8">
+      <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#0077b5] text-3xl font-bold text-white">
+        in
+      </div>
 
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#0077b5] text-3xl font-bold text-white">
-                in
-              </div>
+      <div className="w-full border-t border-white/30 pt-5">
+        <img
+          src={companyLogo}
+          alt="Company"
+          className="mx-auto h-10 object-contain"
+        />
+      </div>
 
-              <div className="w-full border-t border-white/30 pt-5">
-
-                <img
-                  src={companyLogo}
-                  alt="Company"
-                  className="mx-auto h-10 object-contain"
-                />
-
-              </div>
-
-            </div>
-
-          </section>
+    </div>
+  </section>
+</a>
 
         </div>
 
