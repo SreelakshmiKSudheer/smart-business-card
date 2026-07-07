@@ -12,7 +12,7 @@ export const company: Company = {
 
   website: "https://www.tarento.com",
 
-  linkedin: "https://www.linkedin.com/company/tarento",
+  linkedin: "https://www.linkedin.com/company/tarento-group",
 
   logo: tarentoLogo,
   bannerImage: officeBanner,
