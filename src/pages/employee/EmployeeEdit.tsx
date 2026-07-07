@@ -2,18 +2,23 @@ import EmployeeEditForm from "../../components/organisms/EmployeeEditForm";
 import PhonePreview from "../../components/organisms/PhonePreview";
 import { employee as initialEmployee } from "../../data/employee";
 import BusinessCard from "../../components/organisations/BusinessCard";
-import ConfirmationModal from "../../components/molecules/ConfirmationModal";
-import SuccessModal from "../../components/molecules/SuccessModal";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
+import Modal from "../../components/molecules/Modal";
+import { CircleCheckBig, CircleHelp } from "lucide-react";
+
 
 export default function EmployeeEdit() {
+
   const navigate = useNavigate();
-const [editedEmployee, setEditedEmployee] =
+
+  const [editedEmployee, setEditedEmployee] =
   useState(initialEmployee);
+
   const [showConfirm, setShowConfirm] = useState(false);
 useEffect(() => {
+
   const handleSave = () => {
     setShowConfirm(true);
   };
@@ -96,27 +101,43 @@ const [showSuccess, setShowSuccess] = useState(false);
 </div>
 
       </div>
-<ConfirmationModal
+<Modal
   open={showConfirm}
-  onCancel={() => setShowConfirm(false)}
-  onConfirm={() => {
+  icon={
+    <CircleHelp
+      size={56}
+      className="text-amber-500"
+    />
+  }
+  title="Submit Changes?"
+  description="Are you sure you want to submit your profile changes? They will be sent to the administrator for approval."
+  primaryText="Submit"
+  secondaryText="Cancel"
+  onPrimary={() => {
     setShowConfirm(false);
-
-    // Later we'll call the API here
 
     setShowSuccess(true);
   }}
+  onSecondary={() => setShowConfirm(false)}
 />
 
-<SuccessModal
+<Modal
   open={showSuccess}
-  onClose={() => {
+  icon={
+    <CircleCheckBig
+      size={56}
+      className="text-green-600"
+    />
+  }
+  title="Changes Submitted"
+  description="Your profile changes have been submitted successfully and are now awaiting administrator approval."
+  primaryText="OK"
+  onPrimary={() => {
     setShowSuccess(false);
 
     navigate("/employee/profile");
   }}
 />
-
     </main>
   );
 }
