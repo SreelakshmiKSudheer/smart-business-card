@@ -9,7 +9,7 @@ export const employee: Employee = {
 
   lastName: "Stratos",
 
-  designation: "Senior Solutions Architect",
+  designation: "Senior Architect",
 
   department: "Cloud Consulting",
 
