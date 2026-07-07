@@ -1,15 +1,16 @@
 import { Outlet, useLocation, useNavigate } from "react-router";
 import { useState } from "react";
-
+import Modal from "../components/molecules/Modal";
 import EmployeeHeader from "../components/organisms/EmployeeHeader";
 import NotificationDrawer from "../components/organisms/NotificationDrawer";
-
-import { Bell, Pencil } from "lucide-react";
+import { CircleCheckBig, CircleHelp } from "lucide-react";
+import { Bell, Pencil, LogOut } from "lucide-react";
 
 export default function EmployeeLayout() {
   const [isNotificationOpen, setIsNotificationOpen] =
     useState(false);
-
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+const [showLogoutSuccess, setShowLogoutSuccess] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -71,6 +72,30 @@ export default function EmployeeLayout() {
                 >
                   <Pencil className="h-5 w-5" />
                 </button>
+                <button
+  onClick={() => setShowLogoutConfirm(true)}
+  className="
+    flex
+    items-center
+    gap-2
+
+    rounded-xl
+
+    border
+    border-red-200
+
+    px-4
+    py-2
+
+    text-red-600
+
+    hover:bg-red-50
+  "
+>
+  <LogOut size={18} />
+
+  <span>Logout</span>
+</button>
               </>
             )}
 
@@ -107,6 +132,35 @@ export default function EmployeeLayout() {
       <main className="pb-24">
         <Outlet />
       </main>
+      <Modal
+  open={showLogoutConfirm}
+  icon={
+    <CircleHelp
+      size={56}
+      className="text-amber-500"
+    />
+  }
+  title="Logout?"
+  description="Are you sure you want to logout from your account?"
+  primaryText="Logout"
+  secondaryText="Cancel"
+  onPrimary={() => {
+    setShowLogoutConfirm(false);
+    setShowLogoutSuccess(true);
+  }}
+  onSecondary={() => setShowLogoutConfirm(false)}
+/><Modal
+  open={showLogoutSuccess}
+  title="Logged Out"
+  description="You have been successfully logged out."
+  primaryText="OK"
+  onPrimary={() => {
+    setShowLogoutSuccess(false);
+
+    navigate("/");
+    // or navigate("/login")
+  }}
+/>
     </div>
   );
 }
