@@ -37,7 +37,7 @@ export default function FloatingQRButton() {
       aria-label="Show My QR"
       title="Show My QR"
     >
-      <QrCode size={26} strokeWidth={2.5} />
+      <QrCode className="h-6 w-6" strokeWidth={2.5} />
     </button>
   );
 }

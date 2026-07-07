@@ -51,7 +51,7 @@ const Sidebar = () => {
       <div className="fixed top-4 z-50 md:hidden">
         <Button
           variant="none"
-          icon={<PanelLeftOpen size={22} />}
+          icon={<PanelLeftOpen className="h-6 w-6" />}
           onClick={() => setMobileOpen(true)}
         />
       </div>
@@ -89,8 +89,8 @@ const Sidebar = () => {
         <div className="flex items-center justify-between p-4">
           {!collapsed && (
             <div className="flex items-center gap-2 text-(--dominant)">
-              <IdCard className="text-(--text)" size={34} />
-              <h1 className="text-xl font-bold text-(--text)">
+                <IdCard className="h-9 w-9 text-(--text)" />
+                <h1 className="text-xl font-bold text-(--text)">
               SBC
             </h1>
             </div>
@@ -102,9 +102,9 @@ const Sidebar = () => {
               variant="none"
               icon={
                 collapsed ? (
-                  <PanelLeftOpen size={20} />
+                  <PanelLeftOpen className="h-5 w-5" />
                 ) : (
-                  <PanelLeftClose size={20} />
+                  <PanelLeftClose className="h-5 w-5" />
                 )
               }
               onClick={() => setCollapsed(!collapsed)}
@@ -115,7 +115,7 @@ const Sidebar = () => {
           <div className="md:hidden">
             <Button
               variant="none"
-              icon={<PanelLeftClose size={20} />}
+              icon={<PanelLeftClose className="h-5 w-5" />}
               onClick={() => setMobileOpen(false)}
             />
           </div>
@@ -123,7 +123,7 @@ const Sidebar = () => {
 
       {/* Navigation */}
       {!collapsed && <div className="flex justify-center">
-        <img src={companyLogo} alt="Company Logo" className="w-[80%] h-auto p-4 text-center" />
+        <img src={companyLogo} alt="Company Logo" className="w-4/5 h-auto p-4 text-center" />
       </div>}
 
       <nav className="flex flex-col gap-2 px-2">
@@ -138,7 +138,7 @@ const Sidebar = () => {
               {({ isActive }) => (
                 <Button
                   fullWidth
-                  icon={<Icon size={20} />}
+                  icon={<Icon className="h-5 w-5" />}
                   text={collapsed ? undefined : item.label}
                   iconPosition="left"
                   variant={isActive ? "filled" : "none"}

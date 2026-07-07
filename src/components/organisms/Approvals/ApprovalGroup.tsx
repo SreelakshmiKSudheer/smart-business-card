@@ -1,4 +1,3 @@
-import React from 'react'
 import type { ApprovalProps } from '../../molecules/Approval/Approval';
 import Approval from '../../molecules/Approval/Approval';
 import { SaveCheck } from 'lucide-react';
@@ -11,7 +10,7 @@ export type ApprovalGroupsProps = {
 
 const ApprovalGroup = ({ name, approvalRequests }: ApprovalGroupsProps) => {
   return (
-    <div className='flex flex-col gap-1 bg-(--card) shadow-lg rounded-md min-w-55 md:max-w-87.5'>
+    <div className='flex w-full min-w-[16rem] flex-col gap-1 rounded-md bg-(--card) shadow-lg md:max-w-[22rem]'>
       <div className='w-full flex justify-start items-center m-4 gap-2'>
         <SaveCheck className='text-red-700' />
         {name && <h3 className=' text-lg text-(--text) font-bold w-fit'>{name}</h3>}

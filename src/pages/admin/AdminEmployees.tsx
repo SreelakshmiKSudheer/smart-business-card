@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from "react";
 import FilterDropdown from "../../components/molecules/FilterDropdown";
 import ApprovalGroup from '../../components/organisms/Approvals/ApprovalGroup'
@@ -72,10 +71,10 @@ const AdminEmployees = () => {
           <p className="text-sm text-(--text-light)">Manage your employees and their profiles.</p>
         </div>
         <div className='flex justify-end  gap-4'>
-          <Input icon={<Search />} placeholder="Search employees by name, email..." />
+          <Input icon={<Search className="h-5 w-5" />} placeholder="Search employees by name, email..." />
           <div className="relative">
             <Button
-              icon={<ListFilter size={20} />}
+              icon={<ListFilter className="h-5 w-5" />}
               variant="outline"
               size="sm"
               onClick={() => setShowFilter((prev) => !prev)}
@@ -96,21 +95,21 @@ const AdminEmployees = () => {
             <MetricCard 
               title="Total Employees" 
               value="1,284" 
-              icon={<Users size={20} />} 
+              icon={<Users className="h-5 w-5" />} 
               iconBg="bg-[#ccfbf1]" 
               iconColor="text-[#0d9488]" 
             />
             <MetricCard 
               title="Review Required" 
               value="12" 
-              icon={<AlertCircle size={20} />} 
+              icon={<AlertCircle className="h-5 w-5" />} 
               iconBg="bg-[#fee2e2]" 
               iconColor="text-[#ef4444]" 
             />
             <MetricCard 
               title="Weekly Scans" 
               value="+12.5%" 
-              icon={<TrendingUp size={20} />} 
+              icon={<TrendingUp className="h-5 w-5" />} 
               iconBg="bg-[#dbeafe]" 
               iconColor="text-[#2563eb]" 
             />

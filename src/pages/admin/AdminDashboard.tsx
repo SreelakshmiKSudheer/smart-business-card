@@ -36,7 +36,7 @@ export default function AdminDashboard() {
           <MetricCard
             title="Total Employees"
             value="1,284"
-            icon={<Users size={20} />}
+            icon={<Users className="h-5 w-5" />}
             iconBg="bg-emerald-100"
             iconColor="text-emerald-700"
           />
@@ -44,7 +44,7 @@ export default function AdminDashboard() {
           <MetricCard
             title="Review Required"
             value="12"
-            icon={<AlertCircle size={20} />}
+            icon={<AlertCircle className="h-5 w-5" />}
             iconBg="bg-red-100"
             iconColor="text-red-600"
           />
@@ -52,7 +52,7 @@ export default function AdminDashboard() {
           <MetricCard
             title="Weekly Scans"
             value="+12.5%"
-            icon={<TrendingUp size={20} />}
+            icon={<TrendingUp className="h-5 w-5" />}
             iconBg="bg-blue-100"
             iconColor="text-blue-700"
           />
@@ -67,7 +67,10 @@ export default function AdminDashboard() {
 
           <section className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
 
-            <span className="text-xs font-semibold uppercase tracking-wide text-[var(--dominant)]">
+            <span
+              className="text-xs font-semibold uppercase tracking-wide"
+              style={{ color: "var(--dominant)" }}
+            >
               Co-creating a better tomorrow
             </span>
 
@@ -158,8 +161,8 @@ export default function AdminDashboard() {
             <div className="flex items-center gap-3">
 
               <BarChart3
-                size={26}
-                className="text-[var(--dominant)]"
+                className="h-6 w-6"
+                style={{ color: "var(--dominant)" }}
               />
 
               <h2 className="text-2xl font-bold">
@@ -204,7 +207,7 @@ export default function AdminDashboard() {
 
           <div className="rounded-2xl border border-slate-200 p-5">
 
-            <div className="h-[380px]">
+            <div className="h-95">
 
               <ScanAreaChart />
 
@@ -218,7 +221,7 @@ export default function AdminDashboard() {
 
       <footer className="border-t border-slate-200 bg-white">
 
-        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-8 text-sm text-slate-500">
+        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 text-sm text-slate-500 sm:px-6 lg:px-8">
 
           <span>
             © 2026 Tarento Technologies. All rights reserved.

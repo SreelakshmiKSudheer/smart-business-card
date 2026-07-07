@@ -109,14 +109,14 @@ export default function Modal({
   text={secondaryText}
   variant="outline"
   onClick={onSecondary}
-  className="min-w-32"
+  className="min-w-[8rem]"
 />
           )}
 
           <Button
   text={primaryText}
   onClick={onPrimary}
-  className="min-w-32"
+  className="min-w-[8rem]"
 />
 
         </div>

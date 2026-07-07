@@ -31,14 +31,11 @@ export default function MobileBottomNavigation({
           flex-col
           items-center
           gap-1
-          ${
-            active === "card"
-              ? "text-[var(--dominant)]"
-              : "text-slate-500"
-          }
+          ${active === "card" ? "text-slate-950" : "text-slate-500"}
         `}
+        style={active === "card" ? { color: "var(--dominant)" } : undefined}
       >
-        <Smartphone size={22} />
+        <Smartphone className="h-6 w-6" />
 
         <span className="text-xs">
           Card
@@ -54,14 +51,11 @@ export default function MobileBottomNavigation({
           flex-col
           items-center
           gap-1
-          ${
-            active === "qr"
-              ? "text-[var(--dominant)]"
-              : "text-slate-500"
-          }
+          ${active === "qr" ? "text-slate-950" : "text-slate-500"}
         `}
+        style={active === "qr" ? { color: "var(--dominant)" } : undefined}
       >
-        <QrCode size={22} />
+        <QrCode className="h-6 w-6" />
 
         <span className="text-xs">
           QR

@@ -18,7 +18,7 @@ const LocationActions = ({
 
       <Button
         text="Open in Google Maps"
-        icon={<Navigation size={18} />}
+        icon={<Navigation className="h-5 w-5" />}
         variant="filled"
         color="primary"
         fullWidth

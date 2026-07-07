@@ -37,9 +37,9 @@ const PaginationButton = ({
       `}
     >
       {previous ? (
-        <ChevronLeft size={18} />
+        <ChevronLeft className="h-4 w-4" />
       ) : next ? (
-        <ChevronRight size={18} />
+        <ChevronRight className="h-4 w-4" />
       ) : (
         children
       )}

@@ -69,7 +69,7 @@ Best Regards,
 
       <Button
   text={email}
-  icon={<Mail size={18} />}
+  icon={<Mail className="h-5 w-5" />}
   variant="outline"
   color="primary"
   fullWidth
@@ -78,7 +78,7 @@ Best Regards,
 
     <Button
   text={phone}
-  icon={<Phone size={18} />}
+  icon={<Phone className="h-5 w-5" />}
   variant="outline"
   color="primary"
   fullWidth
@@ -104,7 +104,7 @@ Best Regards,
 
         <Button
           text="Share"
-          icon={<Share2 size={18} />}
+          icon={<Share2 className="h-5 w-5" />}
           variant="filled"
           color="primary"
           fullWidth
@@ -113,7 +113,7 @@ Best Regards,
 
         <Button
           text="Save"
-          icon={<Download size={18} />}
+          icon={<Download className="h-5 w-5" />}
           variant="filled"
           color="primary"
           fullWidth

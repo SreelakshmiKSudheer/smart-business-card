@@ -38,7 +38,7 @@ const FilterDropdown = ({
   return (
     <div
       ref={dropdownRef}
-      className="absolute right-0 top-full mt-2 w-60 rounded-lg border border-(--border) bg-(--card) shadow-lg z-50 overflow-hidden"
+      className="absolute right-0 top-full z-50 mt-2 w-full min-w-[12rem] max-w-[15rem] overflow-hidden rounded-lg border border-(--border) bg-(--card) shadow-lg"
     >
       {options.map((option) => (
         <button

@@ -17,8 +17,10 @@ export default function NotificationHeader({
         border-b
         border-slate-200
 
-        px-6
-        py-5
+        px-4
+        py-4
+        sm:px-6
+        sm:py-5
       "
     >
       <div>
@@ -42,7 +44,7 @@ export default function NotificationHeader({
           hover:bg-slate-100
         "
       >
-        <X size={22} />
+        <X className="h-5 w-5" />
       </button>
     </div>
   );

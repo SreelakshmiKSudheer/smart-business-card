@@ -3,13 +3,13 @@ import styles from "./avatar.module.css";
 interface AvatarProps {
   src: string;
   alt: string;
-  size?: number;
+  size?: string;
 }
 
 export default function Avatar({
   src,
   alt,
-  size = 120
+  size = "7.5rem"
 }: AvatarProps) {
   return (
     <img

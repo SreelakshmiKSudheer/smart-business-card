@@ -12,11 +12,12 @@ export default function PhonePreview({
       className="
         mx-auto
 
-        w-[380px]
+        w-full
+        max-w-[23.75rem]
 
         rounded-[2.5rem]
 
-        border-[10px]
+        border-[0.625rem]
         border-slate-900
 
         bg-white
@@ -47,7 +48,7 @@ export default function PhonePreview({
       <div
   className="
     flex
-    h-[760px]
+    h-[47.5rem]
     flex-col
     overflow-y-auto
     bg-slate-100

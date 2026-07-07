@@ -45,7 +45,7 @@ export default function NotificationDrawer({
           flex
           h-screen
           w-full
-          max-w-sm
+          max-w-[24rem]
           flex-col
 
           bg-white

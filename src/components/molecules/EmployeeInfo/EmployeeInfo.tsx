@@ -14,7 +14,7 @@ export default function EmployeeInfo({
 }: EmployeeInfoProps) {
   return (
     <div className={styles.container}>
-      <Avatar src={image} alt={name} size={130} />
+      <Avatar src={image} alt={name} size="8rem" />
 
       <h1 className={styles.name}>{name}</h1>
 

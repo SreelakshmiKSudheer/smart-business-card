@@ -38,7 +38,8 @@ export default function EmployeeHeader({
           h-16
           items-center
           justify-between
-          px-5
+          px-4
+          sm:px-6
         "
       >
         {/* Left */}
@@ -65,7 +66,7 @@ export default function EmployeeHeader({
                   transition
                 "
               >
-                <ArrowLeft size={22} />
+                <ArrowLeft className="h-5 w-5" />
               </button>
             )}
 

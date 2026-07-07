@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { LayoutGrid, Users, Settings as SettingsIcon, LogOut, Palette, Upload, PenTool } from 'lucide-react'
+import { Palette, Upload, PenTool } from 'lucide-react'
 import companyLogo from '../../assets/images/companyLogo.png' 
 import tarentoOffice from '../../assets/images/tarento-office.png'
 import MapCard from '../../components/molecules/MapCard';
@@ -9,12 +9,6 @@ import { company } from '../../data/company';
 import Button from '../../components/atoms/buttons/Button.tsx'; 
 import LabelInput from '../../components/molecules/LabelInput';
 
-interface NavItem {
-  id: string;
-  label: string;
-  icon: React.ReactNode;
-}
-
 interface BrandPalette {
   bg: string;
   dominant: string;
@@ -22,13 +16,6 @@ interface BrandPalette {
 }
 
 const AdminSettings: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>('settings');
-
-  const navItems: NavItem[] = [
-    { id: 'overview', label: 'Overview', icon: <LayoutGrid size={18} /> },
-    { id: 'employees', label: 'Employees', icon: <Users size={18} /> },
-    { id: 'settings', label: 'Settings', icon: <SettingsIcon size={18} /> },
-  ];
   // Read current layout variables to populate initial state so fields don't reset on load
   const getInitialColor = (variableName: string, fallback: string) => {
     const value = getComputedStyle(document.documentElement).getPropertyValue(variableName).trim();
@@ -79,11 +66,14 @@ const AdminSettings: React.FC = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[var(--bg)] min-w-full font-sans transition-colors duration-200">
+    <div
+      className="flex min-h-screen min-w-full font-sans transition-colors duration-200"
+      style={{ backgroundColor: "var(--bg)" }}
+    >
       
       
       {/* ================= MAIN INTERFACE BODY ================= */}
-      <div className="flex-grow flex flex-col">
+      <div className="flex flex-col grow">
         
         {/* TOP COMPACT TITLE HEADER */}
         <header >
@@ -92,12 +82,12 @@ const AdminSettings: React.FC = () => {
         </header>
 
         {/* SETTINGS CARD CONTAINER */}
-        <main className="px-10 pb-10 flex-grow overflow-y-auto flex flex-col gap-6">
+        <main className="flex grow flex-col gap-6 overflow-y-auto px-4 pb-6 sm:px-6 sm:pb-8 lg:px-10 lg:pb-10">
           <div className="bg-white rounded-xl p-8 border border-solid border-[#e2e8f0] flex flex-col gap-6">
             
             {/* Header: Customise Branding */}
             <div className="flex items-center gap-2 text-[#1e293b] font-semibold text-lg">
-              <Palette size={20} className="text-[var(--dominant)]" />
+              <Palette className="h-5 w-5 text-(--dominant)" />
               <h2>Customise Branding</h2>
             </div>
 
@@ -105,10 +95,10 @@ const AdminSettings: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-transparent">
               {/* Organization Logo Custom Box */}
               <div className="flex items-center gap-4">
-                <div className="relative border border-dashed border-[#cbd5e1] p-4 rounded-lg bg-[#f8fafc] w-[180px] h-[70px] flex items-center justify-center">
+                <div className="relative flex h-17.5 w-45 items-center justify-center rounded-lg border border-dashed border-[#cbd5e1] bg-[#f8fafc] p-4 sm:h-17.5 sm:w-48">
                   <img src={companyLogo} alt="Organization Upload Preview" className="max-h-full max-w-full object-contain" />
                   <button className="absolute -bottom-2 -right-2 w-6 h-6 bg-[#1e293b] rounded-full flex items-center justify-center text-white border-none cursor-pointer">
-                    <PenTool size={12} />
+                    <PenTool className="h-3 w-3" />
                   </button>
                 </div>
                 <div className="flex flex-col gap-2">
@@ -116,24 +106,25 @@ const AdminSettings: React.FC = () => {
                   <p className="text-xs text-[#94a3b8] m-0 leading-tight">Upload a high-resolution PNG or SVG.<br/>Recommended size 512×512px.</p>
                   <Button 
                     text="Upload Logo"
-                    icon={<Upload size={12} />}
+                    icon={<Upload className="h-3 w-3" />}
                     iconPosition="left"
                     size="sm"
-                    className="bg-dominant text-white border-none w-fit mt-1"
+                    className="text-white border-none w-fit mt-1 hover:opacity-95"
+                    style={{ backgroundColor: "var(--dominant)" }}
                   />
                 </div>
               </div>
 
               {/* Organization Cover Image block */}
               <div className="flex items-center gap-4">
-                <div className="relative border border-solid border-[#cbd5e1] rounded-lg bg-[#f8fafc] w-[180px] h-[180px] overflow-hidden flex items-center justify-center flex-shrink-0">
+                <div className="relative flex h-45 w-45 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-solid border-[#cbd5e1] bg-[#f8fafc] sm:h-48 sm:w-48">
                   <img 
                     src={tarentoOffice} 
                     alt="Organization Cover Preview" 
                     className="w-full h-full object-cover" 
                   />
                   <button className="absolute -bottom-2 -right-2 w-6 h-6 bg-[#1e293b] rounded-full flex items-center justify-center text-white border-none cursor-pointer">
-                    <PenTool size={12} />
+                    <PenTool className="h-3 w-3" />
                   </button>
                 </div>
                 <div className="flex flex-col gap-2">
@@ -141,10 +132,11 @@ const AdminSettings: React.FC = () => {
                   <p className="text-xs text-[#94a3b8] m-0 leading-tight">Upload a high-resolution PNG or SVG.<br/>Recommended size 512×512px.</p>
                   <Button 
                     text="Upload Image"
-                    icon={<Upload size={12} />}
+                    icon={<Upload className="h-3 w-3" />}
                     iconPosition="left"
                     size="sm"
-                    className="bg-[var(--dominant)] text-white border-none w-fit mt-1"
+                    className="text-white border-none w-fit mt-1 hover:opacity-95"
+                    style={{ backgroundColor: "var(--dominant)" }}
                   />
                 </div>
               </div>
@@ -200,7 +192,7 @@ const AdminSettings: React.FC = () => {
               {/* Right Side Brand Color Scheme Customizer */}
               <div className="bg-white border border-solid border-[#e2e8f0] rounded-xl p-6 flex flex-col gap-5">
                 <div className="flex items-center gap-2 text-sm font-bold text-[#1e293b]">
-                  <PenTool size={16} />
+                  <PenTool className="h-4 w-4" />
                   <h3>Custom Brand Palette</h3>
                 </div>
 
@@ -211,7 +203,7 @@ const AdminSettings: React.FC = () => {
                   <div className="flex flex-col gap-1.5">
                     <span className="text-[10px] font-bold text-[#94a3b8] uppercase tracking-wider">Background Color</span>
                     <div className="flex items-center gap-2 bg-[#f8fafc] border border-solid border-slate-200 rounded px-3 py-1.5 focus-within:border-slate-400 transition-colors">
-                      <div className="relative w-7 h-7 rounded border border-solid border-gray-300 overflow-hidden flex-shrink-0 cursor-pointer shadow-sm">
+                      <div className="relative w-7 h-7 rounded border border-solid border-gray-300 overflow-hidden shrink-0 cursor-pointer shadow-sm">
                         <input 
                           type="color" 
                           value={brandColors.bg} 
@@ -234,7 +226,7 @@ const AdminSettings: React.FC = () => {
                   <div className="flex flex-col gap-1.5">
                     <span className="text-[10px] font-bold text-[#94a3b8] uppercase tracking-wider">Primary Color</span>
                     <div className="flex items-center gap-2 bg-[#f8fafc] border border-solid border-slate-200 rounded px-3 py-1.5 focus-within:border-slate-400 transition-colors">
-                      <div className="relative w-7 h-7 rounded border border-solid border-gray-300 overflow-hidden flex-shrink-0 cursor-pointer shadow-sm">
+                      <div className="relative w-7 h-7 rounded border border-solid border-gray-300 overflow-hidden shrink-0 cursor-pointer shadow-sm">
                         <input 
                           type="color" 
                           value={brandColors.dominant} 
@@ -257,7 +249,7 @@ const AdminSettings: React.FC = () => {
                   <div className="flex flex-col gap-1.5">
                     <span className="text-[10px] font-bold text-[#94a3b8] uppercase tracking-wider">Secondary Color</span>
                     <div className="flex items-center gap-2 bg-[#f8fafc] border border-solid border-slate-200 rounded px-3 py-1.5 focus-within:border-slate-400 transition-colors">
-                      <div className="relative w-7 h-7 rounded border border-solid border-gray-300 overflow-hidden flex-shrink-0 cursor-pointer shadow-sm">
+                      <div className="relative w-7 h-7 rounded border border-solid border-gray-300 overflow-hidden shrink-0 cursor-pointer shadow-sm">
                         <input 
                           type="color" 
                           value={brandColors.secondary} 

@@ -50,7 +50,7 @@ export default function EmployeeLayout() {
                     hover:bg-slate-100
                   "
                 >
-                  <Bell size={18} />
+                  <Bell className="h-5 w-5" />
                 </button>
 
                 <button
@@ -64,12 +64,12 @@ export default function EmployeeLayout() {
                     items-center
                     justify-center
                     rounded-full
-                    bg-[var(--dominant)]
                     text-white
-                    hover:bg-[var(--dominant-alt)]
+                    hover:opacity-90
                   "
+                  style={{ backgroundColor: "var(--dominant)" }}
                 >
-                  <Pencil size={18} />
+                  <Pencil className="h-5 w-5" />
                 </button>
               </>
             )}
@@ -83,12 +83,12 @@ export default function EmployeeLayout() {
                 }
                 className="
                   rounded-xl
-                  bg-[var(--dominant)]
                   px-4
                   py-2
                   text-white
-                  hover:bg-[var(--dominant-alt)]
+                  hover:opacity-90
                 "
+                style={{ backgroundColor: "var(--dominant)" }}
               >
                 Save
               </button>

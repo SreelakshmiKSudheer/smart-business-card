@@ -56,7 +56,7 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
           value: email,
           onChange: (e) => setEmail(e.target.value),
           required: true,
-          icon: <Mail />,
+          icon: <Mail className="h-5 w-5" />,
         }}
       />
 
@@ -73,7 +73,7 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
           value: password,
           onChange: (e) => setPassword(e.target.value),
           required: true,
-          icon: <LockKeyhole />,
+          icon: <LockKeyhole className="h-5 w-5" />,
         }}
       />
 
@@ -90,7 +90,7 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
       <Button
         type="submit"
         text="Login"
-        icon={<MoveRight />}
+        icon={<MoveRight className="h-5 w-5" />}
         iconPosition="right"
         color="secondary"
         fullWidth
