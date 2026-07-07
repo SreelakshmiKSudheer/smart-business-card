@@ -18,19 +18,23 @@ const Button = ({
   loading = false,
   className = "",
   disabled,
+  type = "button",
   ...props
 }: ButtonProps) => {
   return (
     <button
+      type={type}
       disabled={disabled || loading}
       className={`
-        flex
+        inline-flex
         items-center
         justify-center
         gap-2
         rounded-lg
-        transition
+        transition-all
         duration-200
+        font-medium
+        cursor-pointer
 
         ${variants[variant]}
         ${colors[color][variant]}
@@ -39,23 +43,27 @@ const Button = ({
 
         ${fullWidth ? "w-full" : ""}
 
+        ${
+          disabled || loading
+            ? "opacity-60 cursor-not-allowed"
+            : ""
+        }
+
         ${className}
       `}
       {...props}
     >
       {loading ? (
-        <>Loading...</>
+        <>
+          <span>Loading...</span>
+        </>
       ) : (
         <>
-          {icon && iconPosition === "left" && icon}
+          {iconPosition === "left" && icon}
 
-          {text && (
-            <span>
-              {text}
-            </span>
-          )}
+          {text && <span>{text}</span>}
 
-          {icon && iconPosition === "right" && icon}
+          {iconPosition === "right" && icon}
         </>
       )}
     </button>

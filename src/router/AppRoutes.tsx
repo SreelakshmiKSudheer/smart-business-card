@@ -11,6 +11,7 @@ import AdminDashboard from '../pages/admin/AdminDashboard'
 import AdminEmployees from '../pages/admin/AdminEmployees'
 import AdminEmployee from '../pages/admin/AdminEmployee'
 import AdminSettings from '../pages/admin/AdminSettings'
+import PublicLayout from '../layouts/PublicLayout'
 
 
 const AppRoutes = () => {
@@ -19,8 +20,10 @@ const AppRoutes = () => {
         <Route element={<AuthLayout/>}>
             <Route path="/login" element={<Login />} />
         </Route>
-        <Route element={<EmployeeLayout/>}>
+        <Route element={<PublicLayout/>}>
             <Route path="/:employeeName" element={<EmployeeProfile />} />
+        </Route>
+        <Route element={<EmployeeLayout/>}>
             <Route path="employee/profile" element={<EmployeeDashboard />} />
             <Route path="employee/qr" element={<EmployeeQR />} />
             <Route path="employee/edit" element={<EmployeeEdit />} />

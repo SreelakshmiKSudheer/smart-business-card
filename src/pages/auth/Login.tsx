@@ -1,7 +1,36 @@
+import { useNavigate } from "react-router";
 import logoImg from '../../assets/images/logoImg.png'
-import LoginForm from '../../components/organisms/forms/LoginForm'
+import LoginForm from "../../components/organisms/forms/LoginForm";
+import { adminCredentials, employeeCredentials } from "../../data/loginCredentials";
+
+export type LoginFormData = {
+  email: string;
+  password: string;
+  rememberMe: boolean;
+};
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = (data: LoginFormData) => {
+    console.log("Login Data:", data);
+
+    // Temporary authentication logic
+    if (
+      data.email === adminCredentials.email &&
+      data.password === adminCredentials.password
+    ) {
+      navigate("/admin/dashboard");
+    } else if (
+      data.email === employeeCredentials.email &&
+      data.password === employeeCredentials.password
+    ) {
+      navigate("/employee/dashboard");
+    } else {
+      alert("Invalid email or password");
+    }
+  };
+
   return (
 
     <div className="flex flex-col items-center justify-center h-full p-10 bg-(--bg)">
@@ -14,9 +43,9 @@ const Login = () => {
         </h1>
         <p className="text-(--text-light)">Manage enterprise smart card entities</p>
       </div>
-       <LoginForm />
+      <LoginForm onSubmit={handleLogin} />
       </div>
-  )
-}
+      );
+};
 
-export default Login
+export default Login;

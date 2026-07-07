@@ -1,6 +1,9 @@
-import type { ReactNode, ButtonHTMLAttributes } from "react";
+import type {
+  ButtonHTMLAttributes,
+  ReactNode,
+} from "react";
 
-export type ButtonVariant = "filled" | "outline";
+export type ButtonVariant = "filled" | "outline" | "none";
 
 export type ButtonSize = "sm" | "md" | "lg";
 
@@ -11,7 +14,9 @@ export type ButtonColor =
   | "success";
 
 export type IconPosition = "left" | "right";
-export type ButtonDirection = "row" | "col"; 
+
+export type ButtonDirection = "row" | "col";
+
 export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string;
@@ -31,6 +36,4 @@ export interface ButtonProps
   fullWidth?: boolean;
 
   loading?: boolean;
-
-  onclick?: () => void;
 }
