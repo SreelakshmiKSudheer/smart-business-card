@@ -7,10 +7,7 @@ import { company } from '../data/company'
 const PublicLayout = () => {
   return (
     <div>
-        <Header
-    companyLogo={company.logo}
-    companyName={company.name}
-/>
+
         <main className="min-h-[calc(100vh-64px)] bg-(--bg)">
             <Outlet />
         </main>

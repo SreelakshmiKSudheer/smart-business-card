@@ -1,3 +1,12 @@
+import MetricCard from "../molecules/MetricCard";
+import AreaChart from "../atoms/graphs/AreaChart";
+
+import {
+  BarChart3,
+  CalendarDays,
+  Calendar,
+} from "lucide-react";
+
 export default function AnalyticsCard() {
   return (
     <section
@@ -6,64 +15,77 @@ export default function AnalyticsCard() {
         bg-white
         p-8
         shadow-md
-        h-full
       "
     >
-      <h2
-        className="
-          text-2xl
-          font-bold
-          text-slate-900
-        "
-      >
-        Scan Analytics
-      </h2>
+      {/* Heading */}
 
-      <div
-        className="
-          mt-8
-          grid
-          grid-cols-2
-          gap-6
-        "
-      >
-        <div className="rounded-2xl bg-slate-100 p-6">
-          <p className="text-sm text-slate-500">
-            Total Scans
-          </p>
+      <div className="mb-8">
 
-          <h3 className="mt-2 text-3xl font-bold">
-            184
-          </h3>
-        </div>
+        <h2 className="text-2xl font-bold">
+          Scan Analytics
+        </h2>
 
-        <div className="rounded-2xl bg-slate-100 p-6">
-          <p className="text-sm text-slate-500">
-            Today
-          </p>
+        <p className="mt-2 text-slate-500">
+          Track your digital business card engagement.
+        </p>
 
-          <h3 className="mt-2 text-3xl font-bold">
-            12
-          </h3>
-        </div>
       </div>
 
+      {/* Metrics */}
+
       <div
         className="
-          mt-8
+          mb-8
+
           flex
-          h-[450px]
-          items-center
-          justify-center
-          rounded-2xl
-          border-2
-          border-dashed
-          border-slate-300
-          text-slate-400
+          flex-wrap
+
+          gap-5
         "
       >
-        Chart Placeholder
+        <MetricCard
+          title="Total Scans"
+          value="184"
+          icon={<BarChart3 size={22} />}
+          iconBg="bg-emerald-100"
+          iconColor="text-emerald-700"
+        />
+
+        <MetricCard
+          title="Today's Scans"
+          value="12"
+          icon={<Calendar size={22} />}
+          iconBg="bg-blue-100"
+          iconColor="text-blue-700"
+        />
+
+        <MetricCard
+          title="This Week"
+          value="38"
+          icon={<CalendarDays size={22} />}
+          iconBg="bg-orange-100"
+          iconColor="text-orange-700"
+        />
       </div>
+
+      {/* Chart */}
+
+      <div
+        className="
+          rounded-2xl
+
+          border
+
+          border-slate-200
+
+          bg-white
+
+          p-6
+        "
+      >
+        <AreaChart />
+      </div>
+
     </section>
   );
 }
