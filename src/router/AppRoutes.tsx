@@ -32,6 +32,7 @@ const AppRoutes = () => {
         <Route element={<AdminLayout/>}>
             <Route path="admin/dashboard" element={<AdminDashboard />} />
             <Route path="admin/employees" element={<AdminEmployees />} />
+            <Route path="admin/employee/:id" element={<AdminEmployee />} />
             <Route path="admin/employees/profile" element={<EmployeeDashboard/>} />
             <Route path="admin/settings" element={<AdminSettings />} />
             <Route path="admin/profile" element={<EmployeeDashboard />} />
