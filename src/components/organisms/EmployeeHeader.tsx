@@ -70,7 +70,7 @@ export default function EmployeeHeader({
             )}
 
             {title && (
-              <h1 className="text-lg font-semibold text-slate-900">
+              <h1 className="text-lg font-semibold">
                 {title}
               </h1>
             )}
@@ -79,13 +79,9 @@ export default function EmployeeHeader({
 
         {/* Right */}
 
-        {rightContent ? (
-  <div className="flex items-center gap-2">
-    {rightContent}
-  </div>
-) : (
-  <div className="w-10" />
-)}
+        <div className="flex items-center gap-2">
+          {rightContent}
+        </div>
       </div>
     </header>
   );
