@@ -1,194 +1,234 @@
-import React, { useState } from 'react'
-import { LayoutGrid, Users, Settings, Search, TrendingUp, AlertCircle } from 'lucide-react'
-import companyLogo from '../../assets/images/companyLogo.png'
-import tarentoOffice from '../../assets/images/tarento-office.png'
-import MapCard from '../../components/molecules/MapCard'
-import { company } from '../../data/company'
-import MetricCard from '../../components/molecules/MetricCard'
-<<<<<<< HEAD
+import { Users, Search, TrendingUp, AlertCircle, BarChart3 } from "lucide-react";
+
+import companyLogo from "../../assets/images/companyLogo.png";
+import tarentoOffice from "../../assets/images/tarento-office.png";
+
+import DashboardMasthead from "../../components/atoms/DashboardMasthead";
+import MetricCard from "../../components/molecules/MetricCard";
+import MapCard from "../../components/molecules/MapCard";
 import ScanAreaChart from "../../components/atoms/graphs/AreaChart";
 
-=======
-import DashboardMasthead from '../../components/atoms/DashboardMasthead' // Adjust import path as needed
->>>>>>> 58876115c34ce4e05c2ea7d78801a71a3524e0c0
+import { company } from "../../data/company";
 
-interface NavItem {
-  id: string;
-  label: string;
-  icon: React.ReactNode;
-}
-
-const AdminDashboard: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>('overview');
-
-  const navItems: NavItem[] = [
-    { id: 'overview', label: 'Overview', icon: <LayoutGrid size={18} /> },
-    { id: 'employees', label: 'Employees', icon: <Users size={18} /> },
-    { id: 'settings', label: 'Settings', icon: <Settings size={18} /> },
-  ];
-
+export default function AdminDashboard() {
   return (
-    <div className="w-full flex min-h-screen bg-[#f4f6fa] font-sans">
-      
-      {/* ================= MAIN INTERFACE BODY ================= */}
-      <div className="flex-grow flex flex-col">
-        
-        {/* CONTENT ROW/GRID LAYOUT CONTAINER */}
-        <main className="p-10 flex-grow overflow-y-auto flex flex-col gap-6">
-          
-          {/* Reusable Welcome Dashboard Masthead */}
-          <DashboardMasthead adminName="Admin" />
+    <div className="min-h-screen bg-slate-100">
 
-          {/* Quick Metrics Flex Cards Row */}
-          <div className="flex gap-6 flex-wrap">
-            <MetricCard 
-              title="Total Employees" 
-              value="1,284" 
-              icon={<Users size={20} />} 
-              iconBg="bg-[#ccfbf1]" 
-              iconColor="text-[#0d9488]" 
-            />
-            <MetricCard 
-              title="Review Required" 
-              value="12" 
-              icon={<AlertCircle size={20} />} 
-              iconBg="bg-[#fee2e2]" 
-              iconColor="text-[#ef4444]" 
-            />
-            <MetricCard 
-              title="Weekly Scans" 
-              value="+12.5%" 
-              icon={<TrendingUp size={20} />} 
-              iconBg="bg-[#dbeafe]" 
-              iconColor="text-[#2563eb]" 
-            />
-          </div>
+      <main className="mx-auto flex max-w-7xl flex-col gap-8 px-8 py-8">
 
-          {/* Company Profile Showcase Panel & LinkedIn Widget Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 items-start">
-            
-            {/* Core Info Details Card (Clean Text Layout) */}
-            <div className="bg-white rounded-xl p-8 border border-solid border-[#e2e8f0] flex flex-col justify-between min-h-[230px]">
+        {/* Dashboard Header */}
+
+        <DashboardMasthead adminName="Admin" />
+
+        {/* Top Metrics */}
+
+        <div className="flex flex-wrap gap-6">
+
+          <MetricCard
+            title="Total Employees"
+            value="1,284"
+            icon={<Users size={20} />}
+            iconBg="bg-emerald-100"
+            iconColor="text-emerald-700"
+          />
+
+          <MetricCard
+            title="Review Required"
+            value="12"
+            icon={<AlertCircle size={20} />}
+            iconBg="bg-red-100"
+            iconColor="text-red-600"
+          />
+
+          <MetricCard
+            title="Weekly Scans"
+            value="+12.5%"
+            icon={<TrendingUp size={20} />}
+            iconBg="bg-blue-100"
+            iconColor="text-blue-700"
+          />
+
+        </div>
+
+        {/* Company Overview */}
+
+        <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
+
+          {/* Company Card */}
+
+          <section className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+
+            <span className="text-xs font-semibold uppercase tracking-wide text-[var(--dominant)]">
+              Co-creating a better tomorrow
+            </span>
+
+            <h2 className="mt-2 text-2xl font-bold">
+              {company.name}
+            </h2>
+
+            <p className="mt-4 leading-7 text-slate-600">
+              In a fast-paced world, you need an IT services partner with a
+              proven track record in Enterprise, Digital, Data and AI
+              solutions. Tarento has been enabling businesses with technology
+              for more than a decade.
+            </p>
+
+            <div className="mt-8 flex gap-12">
+
               <div>
-                <span className="text-[0.75rem] font-bold text-[#0d9488] tracking-[0.5px] uppercase block mb-1">Co-creating a better tomorrow</span>
-                <h2 className="text-xl font-bold text-[#1e293b] mb-2">Tarento Technologies Pvt Ltd</h2>
-                <p className="text-sm text-[#64748b] leading-relaxed m-0">
-                  In a fast paced world, you need an IT Services partner with a proven track record in providing Enterprise, Digital, Data and AI services and solutions. As a Nordic-Indo IT Services company, Tarento has been working with aspiring business leaders for more than a decade.
+
+                <p className="text-xs uppercase text-slate-400">
+                  Industry
                 </p>
+
+                <h4 className="mt-1 font-semibold">
+                  IT Services
+                </h4>
+
               </div>
-              <div className="flex gap-10 mt-4">
-                <div>
-                  <span className="text-[0.75rem] text-[#94a3b8] block">Industry</span>
-                  <strong className="text-sm text-[#334155]">IT Services & Digital Identity</strong>
-                </div>
-                <div>
-                  <span className="text-[0.75rem] text-[#94a3b8] block">Founded</span>
-                  <strong className="text-sm text-[#334155]">2010</strong>
-                </div>
+
+              <div>
+
+                <p className="text-xs uppercase text-slate-400">
+                  Founded
+                </p>
+
+                <h4 className="mt-1 font-semibold">
+                  2010
+                </h4>
+
               </div>
+
             </div>
 
-            {/* LinkedIn Card with Office Image Background & Inverted Asset Logo */}
-            <div 
-              className="relative rounded-xl border border-solid border-[#e2e8f0] overflow-hidden bg-cover bg-center h-full min-h-[230px] flex flex-col items-center justify-center p-8"
-              style={{ backgroundImage: `url(${tarentoOffice})` }}
-            >
-              {/* Brighter overlay backdrop (40% opacity) for high image visibility */}
-              <div className="absolute inset-0 bg-[#051625]/40 backdrop-blur-[0.5px]" />
+          </section>
 
-              {/* Foreground content element wrapper */}
-              <div className="relative z-10 flex flex-col items-center gap-6 w-full justify-center">
-                {/* LinkedIn Integration block */}
-                <div className="w-12 h-12 bg-[#0077b5] rounded-lg flex items-center justify-center text-white text-2xl font-bold shadow-md">
-                  in
-                </div>
-                
-                {/* Unified corporate border element wrapping the high-res image asset */}
-                <div className="flex items-center justify-center border-t border-solid border-white/30 pt-4 w-full h-12">
-                  <img 
-                    src={companyLogo} 
-                    alt="Company Logo" 
-                    className="h-full max-w-[140px] object-contain" 
-                  />
-                </div>
+          {/* LinkedIn */}
+
+          <section
+            className="relative overflow-hidden rounded-2xl border border-slate-200 bg-cover bg-center shadow-sm"
+            style={{
+              backgroundImage: `url(${tarentoOffice})`,
+            }}
+          >
+
+            <div className="absolute inset-0 bg-black/45" />
+
+            <div className="relative flex h-full flex-col items-center justify-center gap-6 p-8">
+
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#0077b5] text-3xl font-bold text-white">
+                in
               </div>
+
+              <div className="w-full border-t border-white/30 pt-5">
+
+                <img
+                  src={companyLogo}
+                  alt="Company"
+                  className="mx-auto h-10 object-contain"
+                />
+
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+        {/* Location */}
+
+        <MapCard embedUrl={company.location.embedUrl} />
+
+        {/* Analytics */}
+
+        <section className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+
+          <div className="mb-8">
+
+            <div className="flex items-center gap-3">
+
+              <BarChart3
+                size={26}
+                className="text-[var(--dominant)]"
+              />
+
+              <h2 className="text-2xl font-bold">
+                Company Scan Analytics
+              </h2>
+
+            </div>
+
+            <p className="mt-2 text-slate-500">
+              Monitor digital business card engagement across the organization.
+            </p>
+
+          </div>
+
+          <div className="mb-8 flex flex-wrap gap-5">
+
+            <MetricCard
+              title="Total Scans"
+              value="5,284"
+              icon={<TrendingUp size={20} />}
+              iconBg="bg-emerald-100"
+              iconColor="text-emerald-700"
+            />
+
+            <MetricCard
+              title="Today's Scans"
+              value="84"
+              icon={<Search size={20} />}
+              iconBg="bg-blue-100"
+              iconColor="text-blue-700"
+            />
+
+            <MetricCard
+              title="This Week"
+              value="642"
+              icon={<Users size={20} />}
+              iconBg="bg-orange-100"
+              iconColor="text-orange-700"
+            />
+
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 p-5">
+
+            <div className="h-[380px]">
+
+              <ScanAreaChart />
+
             </div>
 
           </div>
 
-         {/* Location Map Card */}
+        </section>
 
-<MapCard embedUrl={company.location.embedUrl} />
+      </main>
 
-{/* Company Scan Analytics */}
+      <footer className="border-t border-slate-200 bg-white">
 
-<section
-  className="
-    rounded-xl
-    border
-    border-slate-200
-    bg-white
-    p-8
-  "
->
-  <div className="mb-6">
+        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-8 text-sm text-slate-500">
 
-    <h2 className="text-2xl font-bold text-slate-900">
-      Company Scan Analytics
-    </h2>
-
-    <p className="mt-2 text-slate-500">
-      Monitor digital business card engagement across the organization.
-    </p>
-
-  </div>
-<div className="mb-8 flex flex-wrap gap-5">
-
-  <MetricCard
-    title="Total Scans"
-    value="5,284"
-    icon={<TrendingUp size={20} />}
-    iconBg="bg-emerald-100"
-    iconColor="text-emerald-700"
-  />
-
-  <MetricCard
-    title="Today's Scans"
-    value="84"
-    icon={<Search size={20} />}
-    iconBg="bg-blue-100"
-    iconColor="text-blue-700"
-  />
-
-  <MetricCard
-    title="This Week"
-    value="642"
-    icon={<LayoutGrid size={20} />}
-    iconBg="bg-orange-100"
-    iconColor="text-orange-700"
-  />
-
-</div>
-  <ScanAreaChart />
-
-</section>
-        </main>
-
-        {/* SYSTEM BOTTOM LEGAL SUBFOOTER */}
-        <footer className="h-[50px] border-t border-solid border-[#e2e8f0] flex items-center justify-between px-10 text-[0.8rem] text-[#64748b] bg-white">
-          <div>
+          <span>
             © 2026 Tarento Technologies. All rights reserved.
-          </div>
+          </span>
+
           <div className="flex gap-6">
-            <a href="#privacy" className="text-[#64748b] no-underline">Privacy Policy</a>
-            <a href="#terms" className="text-[#64748b] no-underline">Terms of Service</a>
-            <a href="#support" className="text-[#64748b] no-underline">Support</a>
+
+            <a href="#">Privacy Policy</a>
+
+            <a href="#">Terms of Service</a>
+
+            <a href="#">Support</a>
+
           </div>
-        </footer>
 
-      </div>
+        </div>
+
+      </footer>
+
     </div>
-  )
+  );
 }
-
-export default AdminDashboard;
