@@ -1,4 +1,5 @@
 import Button from "../../atoms/buttons/Button";
+import linkedinIcon from "../../../assets/icons/linkedin.svg";
 
 interface Props{
     website:string;
@@ -32,7 +33,13 @@ onClick={()=>window.open(website)}
  />
 
 <Button
-
+icon={
+          <img
+            src={linkedinIcon}
+            alt="LinkedIn"
+            className="h-4 w-4"
+          />
+        }
 text="LinkedIn"
 
 variant="outline"

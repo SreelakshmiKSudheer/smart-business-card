@@ -79,12 +79,14 @@ const AdminSettings: React.FC = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[var(--bg)] font-sans transition-colors duration-200">
+    <div className="flex min-h-screen bg-[var(--bg)] min-w-full font-sans transition-colors duration-200">
+      
+      
       {/* ================= MAIN INTERFACE BODY ================= */}
       <div className="flex-grow flex flex-col">
         
         {/* TOP COMPACT TITLE HEADER */}
-        <header className="pt-8 px-10 pb-4">
+        <header >
           <h1 className="text-2xl font-bold text-[#111827] mb-1">Admin Settings</h1>
           <p className="text-sm text-[#64748b]">Manage your organization's global identity and security protocols.</p>
         </header>

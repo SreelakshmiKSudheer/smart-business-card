@@ -5,15 +5,8 @@ import companyLogo from '../../assets/images/companyLogo.png'
 import tarentoOffice from '../../assets/images/tarento-office.png'
 import MapCard from '../../components/molecules/MapCard'
 import { company } from '../../data/company'
+import MetricCard from '../../components/molecules/MetricCard'
 
-// Define explicit types for strict TSX compliance
-interface MetricCardProps {
-  title: string;
-  value: string;
-  icon: React.ReactNode;
-  iconBg: string;
-  iconColor: string;
-}
 
 interface NavItem {
   id: string;
@@ -31,29 +24,11 @@ const AdminDashboard: React.FC = () => {
   ];
 
   return (
-    <div className="flex min-h-screen bg-[#f4f6fa] font-sans">
+    <div className="w-full flex min-h-screen bg-[#f4f6fa] font-sans">
       
       {/* ================= MAIN INTERFACE BODY ================= */}
       <div className="flex-grow flex flex-col">
         
-        {/* TOP SYSTEM ACCESS BAR */}
-        <header className="h-[70px] flex items-center justify-between px-10 border-b border-solid border-[#e2e8f0]">
-          <div className="relative w-[300px]">
-            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#94a3b8]" />
-            <input 
-              type="text" 
-              placeholder="Search" 
-              className="w-full pl-9 pr-3 py-2 rounded border border-solid border-[#cbd5e1] bg-[#f8fafc] text-sm outline-none"
-            />
-          </div>
-          <div>
-            {/* Profile Avatar Container */}
-            <div className="w-9 h-9 rounded border border-solid border-[#cbd5e1] overflow-hidden">
-              <div className="w-full h-full bg-[#cbd5e1]"></div>
-            </div>
-          </div>
-        </header>
-
         {/* CONTENT ROW/GRID LAYOUT CONTAINER */}
         <main className="p-10 flex-grow overflow-y-auto flex flex-col gap-6">
           
@@ -161,21 +136,6 @@ const AdminDashboard: React.FC = () => {
       </div>
     </div>
   )
-}
-
-{/* Helper Functional Subcomponent for the Info Metrics Row */}
-const MetricCard: React.FC<MetricCardProps> = ({ title, value, icon, iconBg, iconColor }) => {
-  return (
-    <div className="bg-white rounded-xl p-5 px-6 border border-solid border-[#e2e8f0] flex-1 min-w-[220px] flex items-center gap-5">
-      <div className={`w-11 h-11 rounded-lg ${iconBg} ${iconColor} flex items-center justify-center`}>
-        {icon}
-      </div>
-      <div>
-        <span className="text-[0.8rem] text-[#64748b] block font-medium mb-0.5">{title}</span>
-        <strong className="text-2xl font-bold text-[#1e293b]">{value}</strong>
-      </div>
-    </div>
-  );
 }
 
 export default AdminDashboard;
