@@ -17,3 +17,12 @@ import EmployeeHeader from "../../components/organisms/EmployeeHeader";
     </button>
   }
 />
+function EmployeeEdit() {
+  return (
+    <div>
+      Employee Edit
+    </div>
+  );
+}
+
+export default EmployeeEdit;
