@@ -1,4 +1,3 @@
-import React from 'react'
 import logoImg from '../../assets/images/logoImg.png'
 import LoginForm from '../../components/organisms/forms/LoginForm'
 

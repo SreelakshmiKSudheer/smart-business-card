@@ -7,6 +7,7 @@
   --text-light: #3d3d3d;
   --dominant: #006A62;
   --dominant-alt: #014b45;
+  --secondary: #1B2B3A;
 }
 
 .dark {
@@ -16,4 +17,5 @@
   --text-light: #c2c2c2;
   --dominant: #006A62;
   --dominant-alt: #0e6b63;
+  --secondary: #1B2B3A;
 }

@@ -1,10 +1,10 @@
 import Label from "../atoms/Label";
-import Input, { type InputProps } from "../atoms/Input";
+import Input, { type InputProps, type TextAreaProps } from "../atoms/Input";
 import type { LabelProps } from "../atoms/Label";
 
 type LabelInputProps = {
   label: LabelProps;
-  input: InputProps;
+  input: InputProps & TextAreaProps;
 };
 
 const LabelInput = ({ label, input }: LabelInputProps) => {
