@@ -6,8 +6,10 @@ import {
   LogOut,
   PanelLeftClose,
   PanelLeftOpen,
+  IdCard,
 } from "lucide-react";
 import { useState } from "react";
+import companyLogo from "../../../assets/images/companyLogo.png";
 
 import Button from "../../atoms/buttons";
 
@@ -46,7 +48,7 @@ const Sidebar = () => {
   return (
     <div>
       {/* Mobile Toggle Button */}
-      <div className="fixed top-4 left-4 z-50 md:hidden">
+      <div className="fixed top-4 z-50 md:hidden">
         <Button
           variant="none"
           icon={<PanelLeftOpen size={22} />}
@@ -86,9 +88,12 @@ const Sidebar = () => {
         {/* Header */}
         <div className="flex items-center justify-between p-4">
           {!collapsed && (
-            <h1 className="text-xl font-bold text-(--text)">
-              Admin
+            <div className="flex items-center gap-2 text-(--dominant)">
+              <IdCard className="text-(--text)" size={34} />
+              <h1 className="text-xl font-bold text-(--text)">
+              SBC
             </h1>
+            </div>
           )}
 
           {/* Desktop collapse button */}
@@ -117,6 +122,9 @@ const Sidebar = () => {
         </div>
 
       {/* Navigation */}
+      {!collapsed && <div className="flex justify-center">
+        <img src={companyLogo} alt="Company Logo" className="w-[80%] h-auto p-4 text-center" />
+      </div>}
 
       <nav className="flex flex-col gap-2 px-2">
         {sidebarItems.map((item) => {
