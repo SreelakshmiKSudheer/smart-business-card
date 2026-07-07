@@ -22,7 +22,7 @@ export const employee: Employee = {
 
   phone: "+91 9876543210",
 
-  linkedin: "https://linkedin.com/in/alexstratos",
+  linkedin: "https://www.linkedin.com/in/kiran-s-m-here",
 
   profileImage,
 
