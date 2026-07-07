@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { LayoutGrid, Users, Settings, LogOut, Search, TrendingUp, AlertCircle } from 'lucide-react'
-import logoImg from '../../assets/images/logoImg.png' // Adjust the import path to where your image is saved
-import companyLogo from '../../assets/images/companyLogo.png' // Adjust the import path to where your image is savedFov
-import MapCard from '../../components/molecules/MapCard';
-import { company } from '../../data/company';
+import { LayoutGrid, Users, Settings, Search, TrendingUp, AlertCircle } from 'lucide-react'
+import logoImg from '../../assets/images/logoImg.png'
+import companyLogo from '../../assets/images/companyLogo.png'
+import tarentoOffice from '../../assets/images/tarento-office.png'
+import MapCard from '../../components/molecules/MapCard'
+import { company } from '../../data/company'
+
 // Define explicit types for strict TSX compliance
 interface MetricCardProps {
   title: string;
@@ -41,7 +43,7 @@ const AdminDashboard: React.FC = () => {
             <input 
               type="text" 
               placeholder="Search" 
-              className="w-full pl-9 pr-3 py-2 rounded-get border border-solid border-[#cbd5e1] bg-[#f8fafc] text-sm outline-none"
+              className="w-full pl-9 pr-3 py-2 rounded border border-solid border-[#cbd5e1] bg-[#f8fafc] text-sm outline-none"
             />
           </div>
           <div>
@@ -91,51 +93,61 @@ const AdminDashboard: React.FC = () => {
           {/* Company Profile Showcase Panel & LinkedIn Widget Row */}
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 items-start">
             
-            {/* Core Info Details Card */}
-            <div className="bg-white rounded-xl p-8 border border-solid border-[#e2e8f0] flex gap-6">
-              <div className="w-[200px] h-[150px] rounded-lg overflow-hidden flex-shrink-0">
-                <div className="w-full h-full bg-[#e2e8f0]"></div>
+            {/* Core Info Details Card (Clean Text Layout) */}
+            <div className="bg-white rounded-xl p-8 border border-solid border-[#e2e8f0] flex flex-col justify-between min-h-[230px]">
+              <div>
+                <span className="text-[0.75rem] font-bold text-[#0d9488] tracking-[0.5px] uppercase block mb-1">Co-creating a better tomorrow</span>
+                <h2 className="text-xl font-bold text-[#1e293b] mb-2">Tarento Technologies Pvt Ltd</h2>
+                <p className="text-sm text-[#64748b] leading-relaxed m-0">
+                  In a fast paced world, you need an IT Services partner with a proven track record in providing Enterprise, Digital, Data and AI services and solutions. As a Nordic-Indo IT Services company, Tarento has been working with aspiring business leaders for more than a decade.
+                </p>
               </div>
-              <div className="flex flex-col justify-between">
+              <div className="flex gap-10 mt-4">
                 <div>
-                  <span className="text-[0.75rem] font-bold text-[#0d9488] tracking-[0.5px] uppercase block mb-1">Co-creating a better tomorrow</span>
-                  <h2 className="text-xl font-bold text-[#1e293b] mb-2">Tarento Technologies Pvt Ltd</h2>
-                  <p className="text-sm text-[#64748b] leading-relaxed m-0">
-                    In a fast paced world, you need an IT Services partner with a proven track record in providing Enterprise, Digital, Data and AI services and solutions. As a Nordic-Indo IT Services company, Tarento has been working with aspiring business leaders for more than a decade.
-                  </p>
+                  <span className="text-[0.75rem] text-[#94a3b8] block">Industry</span>
+                  <strong className="text-sm text-[#334155]">IT Services & Digital Identity</strong>
                 </div>
-                <div className="flex gap-10 mt-4">
-                  <div>
-                    <span className="text-[0.75rem] text-[#94a3b8] block">Industry</span>
-                    <strong className="text-sm text-[#334155]">IT Services & Digital Identity</strong>
-                  </div>
-                  <div>
-                    <span className="text-[0.75rem] text-[#94a3b8] block">Founded</span>
-                    <strong className="text-sm text-[#334155]">2012</strong>
-                  </div>
+                <div>
+                  <span className="text-[0.75rem] text-[#94a3b8] block">Founded</span>
+                  <strong className="text-sm text-[#334155]">2012</strong>
                 </div>
               </div>
             </div>
 
-            {/* LinkedIn & Identity Matrix Asset Placeholder Card */}
-            <div className="bg-white rounded-xl p-8 border border-solid border-[#e2e8f0] flex flex-col items-center gap-6 justify-center h-full min-h-[230px]">
-              {/* LinkedIn Integration block */}
-              <div className="w-12 h-12 bg-[#0077b5] rounded-lg flex items-center justify-center text-white text-2xl font-bold">in</div>
-              <div className="flex items-center gap-1.5 border-t border-solid border-[#f1f5f9] pt-4 w-full justify-center">
-                <div className="w-4 h-4 bg-[#0d9488] rotate-45"></div>
-                <span className="text-[0.85rem] font-semibold text-[#64748b] tracking-[0.5px]">TARENTO</span>
+            {/* LinkedIn Card with Office Image Background & Inverted Asset Logo */}
+            <div 
+              className="relative rounded-xl border border-solid border-[#e2e8f0] overflow-hidden bg-cover bg-center h-full min-h-[230px] flex flex-col items-center justify-center p-8"
+              style={{ backgroundImage: `url(${tarentoOffice})` }}
+            >
+              {/* Brighter overlay backdrop (40% opacity) for high image visibility */}
+              <div className="absolute inset-0 bg-[#051625]/40 backdrop-blur-[0.5px]" />
+
+              {/* Foreground content element wrapper */}
+              <div className="relative z-10 flex flex-col items-center gap-6 w-full justify-center">
+                {/* LinkedIn Integration block */}
+                <div className="w-12 h-12 bg-[#0077b5] rounded-lg flex items-center justify-center text-white text-2xl font-bold shadow-md">
+                  in
+                </div>
+                
+                {/* Unified corporate border element wrapping the high-res image asset */}
+                <div className="flex items-center justify-center border-t border-solid border-white/30 pt-4 w-full h-12">
+                  <img 
+                    src={companyLogo} 
+                    alt="Company Logo" 
+                    className="h-full max-w-[140px] object-contain" 
+                  />
+                </div>
               </div>
             </div>
 
           </div>
+
           {/* Location Map Card */}
-          <MapCard
-          embedUrl={company.location.embedUrl}
-           />
+          <MapCard embedUrl={company.location.embedUrl} />
         </main>
 
         {/* SYSTEM BOTTOM LEGAL SUBFOOTER */}
-        <footer className="h-[50px] border-t border-solid border-[#e2e8f0] flex items-center justify-between px-10 text-[0.8rem] text-[#64748b] bg-whiteNDA">
+        <footer className="h-[50px] border-t border-solid border-[#e2e8f0] flex items-center justify-between px-10 text-[0.8rem] text-[#64748b] bg-white">
           <div>
             © 2026 Tarento Technologies. All rights reserved.
           </div>
@@ -166,4 +178,4 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, value, icon, iconBg, ico
   );
 }
 
-export default AdminDashboard
+export default AdminDashboard;
