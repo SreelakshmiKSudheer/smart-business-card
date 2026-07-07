@@ -71,9 +71,6 @@ export default function EmployeeLayout() {
         </>
       )}
 
-      {/* QR */}
-
-      
       {/* Edit */}
 
       {isEditPage && (
