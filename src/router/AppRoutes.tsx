@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router'
+import { Navigate, Route, Routes } from 'react-router'
 import AuthLayout from '../layouts/AuthLayout'
 import EmployeeLayout from '../layouts/EmployeeLayout'
 import AdminLayout from '../layouts/AdminLayout'
@@ -17,6 +17,7 @@ import PublicLayout from '../layouts/PublicLayout'
 const AppRoutes = () => {
   return (
     <Routes>
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route element={<AuthLayout/>}>
             <Route path="/login" element={<Login />} />
         </Route>
