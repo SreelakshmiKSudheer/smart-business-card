@@ -21,8 +21,23 @@ export default function EmployeeButtons({
   linkedin,
 }: EmployeeButtonsProps) {
   const openEmail = () => {
-    window.location.href = `mailto:${email}`;
-  };
+  const subject = encodeURIComponent(
+    "Connecting via your Digital Business Card"
+  );
+
+  const body = encodeURIComponent(
+`Hi,
+
+I came across your digital business card and would like to connect with you.
+
+Looking forward to hearing from you.
+
+Best Regards,
+`
+  );
+
+  window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+};
 
   const openPhone = () => {
     window.location.href = `tel:${phone}`;
@@ -53,22 +68,22 @@ export default function EmployeeButtons({
     <div className="mt-6 space-y-3">
 
       <Button
-        text="Email"
-        icon={<Mail size={18} />}
-        variant="outline"
-        color="primary"
-        fullWidth
-        onClick={openEmail}
-      />
+  text={email}
+  icon={<Mail size={18} />}
+  variant="outline"
+  color="primary"
+  fullWidth
+  onClick={openEmail}
+/>
 
-      <Button
-        text="Call"
-        icon={<Phone size={18} />}
-        variant="outline"
-        color="primary"
-        fullWidth
-        onClick={openPhone}
-      />
+    <Button
+  text={phone}
+  icon={<Phone size={18} />}
+  variant="outline"
+  color="primary"
+  fullWidth
+  onClick={openPhone}
+/>
 
       <Button
         text="LinkedIn"
