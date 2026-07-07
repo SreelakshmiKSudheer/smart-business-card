@@ -7,35 +7,43 @@ import { company } from "../../../data/company";
 
 interface HeroSectionProps {
   employee: Employee;
+  layout?: "mobile" | "desktop";
 }
 
 export default function HeroSection({
   employee,
+  layout = "desktop",
 }: HeroSectionProps) {
+  if (layout === "mobile") {
+    return (
+      <section className="flex flex-col gap-8">
+        <EmployeeCard employee={employee} />
+
+        <ExpertiseCard employee={employee} />
+
+        <CompanyBanner company={company} />
+      </section>
+    );
+  }
+
   return (
     <section
       className="
         grid
         grid-cols-1
         gap-8
-        lg:grid-cols-3
         items-start
+        lg:grid-cols-3
       "
     >
-      {/* Left Column */}
-
       <div className="lg:col-span-2">
         <EmployeeCard employee={employee} />
       </div>
 
-      {/* Right Column */}
-
       <div className="flex flex-col gap-8">
-
         <ExpertiseCard employee={employee} />
 
         <CompanyBanner company={company} />
-
       </div>
     </section>
   );

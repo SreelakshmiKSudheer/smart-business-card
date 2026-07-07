@@ -1,13 +1,16 @@
 import BusinessCard from "../../components/organisations/BusinessCard";
 import FloatingQRButton from "../../components/molecules/FloatingQRButton";
-
+import EmployeeQRPreview from "../../components/organisms/EmployeeQRPreview";
 import PhonePreview from "../../components/organisms/PhonePreview";
 import MobileBottomNavigation from "../../components/organisms/MobileBottomNavigation";
 import AnalyticsCard from "../../components/organisms/AnalyticsCard";
-import BusinessCardContent from "../../components/templates/BusinessCardContent";
+import { useState } from "react";
+
 
 
 export default function EmployeeDashboard() {
+
+const [phoneScreen, setPhoneScreen] = useState<"card" | "qr">("card");
   return (
     <main className="min-h-screen bg-slate-100">
 
@@ -17,7 +20,7 @@ export default function EmployeeDashboard() {
 
         <div className="mx-auto w-full max-w-7xl px-4 py-5">
 
-          <BusinessCard />
+          <BusinessCard layout="mobile" />
 
         </div>
 
@@ -52,17 +55,16 @@ export default function EmployeeDashboard() {
         {/* Phone Preview */}
 
        <PhonePreview>
+  {phoneScreen === "card" ? (
+    <BusinessCard layout="mobile" />
+  ) : (
+    <EmployeeQRPreview />
+  )}
 
-    <div className="flex flex-col gap-6 p-4">
-
-        <BusinessCardContent />
-
-    </div>
-
-    <MobileBottomNavigation
-        active="card"
-    />
-
+  <MobileBottomNavigation
+    active={phoneScreen}
+    onChange={setPhoneScreen}
+  />
 </PhonePreview>
 
       </div>

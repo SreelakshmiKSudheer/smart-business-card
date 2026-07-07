@@ -1,42 +1,36 @@
 import { QrCode, Smartphone } from "lucide-react";
-import { useNavigate } from "react-router";
 
 interface MobileBottomNavigationProps {
   active: "card" | "qr";
+  onChange: (screen: "card" | "qr") => void;
 }
 
 export default function MobileBottomNavigation({
   active,
+  onChange,
 }: MobileBottomNavigationProps) {
-  const navigate = useNavigate();
-
   return (
     <div
       className="
         sticky
         bottom-0
-
         flex
         justify-around
-
         border-t
         border-slate-200
-
         bg-white
-
         p-3
       "
     >
       {/* Card */}
 
       <button
-        onClick={() => navigate("/employee/profile")}
+        onClick={() => onChange("card")}
         className={`
           flex
           flex-col
           items-center
           gap-1
-
           ${
             active === "card"
               ? "text-[var(--dominant)]"
@@ -54,13 +48,12 @@ export default function MobileBottomNavigation({
       {/* QR */}
 
       <button
-        onClick={() => navigate("/employee/qr")}
+        onClick={() => onChange("qr")}
         className={`
           flex
           flex-col
           items-center
           gap-1
-
           ${
             active === "qr"
               ? "text-[var(--dominant)]"
