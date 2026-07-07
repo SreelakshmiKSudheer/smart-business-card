@@ -10,7 +10,7 @@ type MetricCardProps = {
 
 const MetricCard = ({ title, value, icon, iconBg, iconColor }: MetricCardProps ) => {
   return (
-    <div className="bg-(--card) rounded-xl p-5 px-6 border border-solid border-[#e2e8f0] flex-1 min-w-[220px] flex items-center gap-5 md:max-w-[350px]">
+    <div className="bg-(--card) rounded-xl p-5 px-6 border border-solid border-[#e2e8f0] flex-1 min-w-55 flex items-center gap-5 md:max-w-87.5">
       <div className={`w-11 h-11 rounded-lg ${iconBg} ${iconColor} flex items-center justify-center`}>
         {icon}
       </div>

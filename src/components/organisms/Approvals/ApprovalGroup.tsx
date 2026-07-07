@@ -11,7 +11,7 @@ export type ApprovalGroupsProps = {
 
 const ApprovalGroup = ({ name, approvalRequests }: ApprovalGroupsProps) => {
   return (
-    <div className='flex flex-col gap-1 bg-(--card) shadow-lg rounded-md min-w-[220px] md:max-w-[350px]'>
+    <div className='flex flex-col gap-1 bg-(--card) shadow-lg rounded-md min-w-55 md:max-w-87.5'>
       <div className='w-full flex justify-start items-center m-4 gap-2'>
         <SaveCheck className='text-red-700' />
         {name && <h3 className=' text-lg text-(--text) font-bold w-fit'>{name}</h3>}

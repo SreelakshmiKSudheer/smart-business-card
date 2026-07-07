@@ -35,7 +35,7 @@ const AdminDashboard: React.FC = () => {
           {/* Welcome Dashboard Masthead */}
           <div className="bg-[#051625] rounded-xl p-10 text-white">
             <h1 className="text-3xl font-semibold mb-2">Welcome back, Admin.</h1>
-            <p className="text-base text-[--dominant-alt] max-w-[600px] leading-normal">
+            <p className="text-base text-[--dominant-alt] max-w-150 leading-normal">
               Manage your organization's digital identity and track active employee credentials across all business lines.
             </p>
           </div>
