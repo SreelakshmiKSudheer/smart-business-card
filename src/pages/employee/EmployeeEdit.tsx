@@ -1,16 +1,11 @@
 import EmployeeEditForm from "../../components/organisms/EmployeeEditForm";
-
 import PhonePreview from "../../components/organisms/PhonePreview";
-import MobileBottomNavigation from "../../components/organisms/MobileBottomNavigation";
 import { employee as initialEmployee } from "../../data/employee";
 import BusinessCard from "../../components/organisations/BusinessCard";
-
 import { useState } from "react";
 
 export default function EmployeeEdit() {
   
-  const [phoneScreen, setPhoneScreen] =
-    useState<"card" | "qr">("card");
 const [editedEmployee, setEditedEmployee] =
   useState(initialEmployee);
   return (
@@ -30,19 +25,21 @@ const [editedEmployee, setEditedEmployee] =
       {/* Desktop */}
 
       <div
-        className="
-          hidden
-          lg:grid
-          lg:grid-cols-3
-          gap-8
+  className="
+    hidden
+    lg:grid
+    lg:grid-cols-3
+    gap-8
 
-          max-w-7xl
-          mx-auto
+    max-w-7xl
+    mx-auto
 
-          px-8
-          py-8
-        "
-      >
+    items-start
+
+    px-8
+    py-8
+  "
+>
         {/* Form */}
 
         <div className="lg:col-span-2">
@@ -56,40 +53,28 @@ const [editedEmployee, setEditedEmployee] =
 
         {/* Preview */}
 
-        <PhonePreview>
+       {/* Preview */}
 
-         <BusinessCard
-    layout="mobile"
-    employee={editedEmployee}
-/>
+<div
+  className="
+    sticky
+    top-24
+    self-start
+    h-fit
+  "
+>
+  <PhonePreview>
 
-          <MobileBottomNavigation
-            active={phoneScreen}
-            onChange={setPhoneScreen}
-          />
+    <BusinessCard
+      layout="mobile"
+      employee={editedEmployee}
+    />
 
-        </PhonePreview>
+  </PhonePreview>
+</div>
 
       </div>
 
     </main>
   );
 }
-
-{/* <EmployeeHeader
-  showBack
-  title="Edit Profile"
-  rightContent={
-    <button
-      className="
-        rounded-xl
-        bg-[var(--dominant)]
-        px-4
-        py-2
-        text-white
-      "
-    >
-      Save
-    </button>
-  }
-/> */}

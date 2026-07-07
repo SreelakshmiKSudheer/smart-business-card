@@ -27,13 +27,11 @@ export const employee: Employee = {
   profileImage,
 
   expertise: [
-    "Cloud",
-    "AWS",
-    "Azure",
     "React",
-    "Node.js",
-    "Docker",
-    "Kubernetes",
-    "Microservices",
+  "Node.js",
+  "Java",
+  "Python",
+  "Django",
+  "MongoDB",
   ],
 };
