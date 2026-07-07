@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { LayoutGrid, Users, Settings as SettingsIcon, LogOut, Palette, Upload, PenTool } from 'lucide-react'
 import companyLogo from '../../assets/images/companyLogo.png' 
 import logoImg from '../../assets/images/logoImg.png'
+import tarentoOffice from '../../assets/images/tarento-office.png'
 import MapCard from '../../components/molecules/MapCard';
 import { company } from '../../data/company';
 
@@ -126,8 +127,15 @@ const AdminSettings: React.FC = () => {
 
               {/* Organization Cover Image block */}
               <div className="flex items-center gap-4">
-                <div className="w-[120px] h-[70px] rounded-lg bg-[#cbd5e1] overflow-hidden flex-shrink-0">
-                  <div className="w-full h-full bg-[#cbd5e1]"></div>
+                <div className="relative border border-solid border-[#cbd5e1] rounded-lg bg-[#f8fafc] w-[180px] h-[180px] overflow-hidden flex items-center justify-center flex-shrink-0">
+                  <img 
+                    src={tarentoOffice} 
+                    alt="Organization Cover Preview" 
+                    className="w-full h-full object-cover" 
+                  />
+                  <button className="absolute -bottom-2 -right-2 w-6 h-6 bg-[#1e293b] rounded-full flex items-center justify-center text-white border-none cursor-pointer">
+                    <PenTool size={12} />
+                  </button>
                 </div>
                 <div className="flex flex-col gap-2">
                   <span className="text-[11px] font-bold text-[#64748b] uppercase tracking-wider block">Organization Image</span>
@@ -137,7 +145,7 @@ const AdminSettings: React.FC = () => {
                     icon={<Upload size={12} />}
                     iconPosition="left"
                     size="sm"
-                    className="bg-dominant text-white border-none w-fit mt-1"
+                    className="bg-[var(--dominant)] text-white border-none w-fit mt-1"
                   />
                 </div>
               </div>
